@@ -1,0 +1,7 @@
+{
+  "name": "propetium",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
