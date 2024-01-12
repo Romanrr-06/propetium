@@ -40,6 +40,10 @@ const routes: Routes = [
     path: 'tienda',
     loadChildren: () => import('./tienda/tienda.module').then( m => m.TiendaPageModule)
   },
+  {
+    path: 'buscador',
+    loadChildren: () => import('./buscador/buscador.module').then( m => m.BuscadorPageModule)
+  },
   
 ];
 
