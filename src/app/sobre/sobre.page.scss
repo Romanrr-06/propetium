@@ -1,0 +1,106 @@
+// Estilos para el ion-header y el ion-content
+ion-header {
+    ion-toolbar {
+      ion-title {
+        text-align: center;
+        color: white; // Texto en color blanco
+      }
+    }
+  }
+  
+  ion-content {
+    .ion-padding {
+      background: linear-gradient(to top left, #000000, #333333); 
+      color: white; 
+      font-family: 'Arial', sans-serif;   
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-family: 'Verdana', sans-serif; 
+        color: white;
+      }
+  
+      div {
+        margin-bottom: 30px;
+  
+        h3 {
+          font-size: 1.5em;
+          margin-bottom: 10px;
+          font-family: 'Tahoma', sans-serif; 
+          color: white; 
+        }
+  
+        p {
+          line-height: 1.6;
+        }
+  
+        ul {
+          list-style: none;
+          padding-left: 0;
+  
+          li {
+            margin-bottom: 5px;
+  
+            strong {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+
+  // Estilos para ion-header y ion-content (no afecta el degradado)
+ion-header {
+  ion-toolbar {
+    ion-title {
+      text-align: center;
+      color: white; // Texto en color blanco
+    }
+  }
+}
+
+ion-content {
+  .ion-padding {
+    /* No se modifica el degradado existente */
+    color: white;
+    font-family: 'Arial', sans-serif;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: 'Verdana', sans-serif;
+      color: white;
+    }
+
+    div {
+      margin-bottom: 30px;
+
+      h3 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        font-family: 'Tahoma', sans-serif;
+        color: white;
+      }
+
+      p {
+        line-height: 1.6;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+          margin-bottom: 5px;
+
+          strong {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
