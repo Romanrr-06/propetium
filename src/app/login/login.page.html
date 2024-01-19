@@ -1,13 +1,15 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-button (click)="login()" *ngIf="(auth.isAuthenticated$ | async) === false">
+    Login
+  </ion-button>
+
+  <ion-button (click)="logout()" *ngIf="(auth.isAuthenticated$ | async) === true">
+    Logout
+  </ion-button>
+
+  <ul *ngIf="auth.user$ | async as user">
+    <li>{{ user.name }}</li>
+    <li>{{ user.email }}</li>
+  </ul>
+
 </ion-content>

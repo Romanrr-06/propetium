@@ -1,19 +1,21 @@
+
 <ion-app>
-  <ion-menu contentId="main-content" type="overlay" side="start">
+  <ion-menu contentId="main-content">
     <ion-header>
       <ion-toolbar color="tertiary">
-        <!-- Puedes incluir el logotipo de Propertium Trading aquí -->
-        <ion-title>
-          <img src="assets/logo Propertium trading/Propertium_trading__5_-removebg-preview.png" style="max-width: 150px; height: auto;">
-        </ion-title>
+        <ion-title>propetium</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
-      <ion-list id="menu-list">
-        <ion-list-header>Menú</ion-list-header>
+    <ion-content class="ion-padding">
+      <ion-list id="inbox-list">
+        <ion-list-header>Pokedex</ion-list-header>
+        <ul *ngIf="auth.user$ | async as user">
+          <li>{{ user.email }}</li>
+        </ul>
+
         <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-          <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-            <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+          <ion-item *ngIf="(auth.isAuthenticated$ | async) === true && p.login_hide === true" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+            <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
             <ion-label>{{ p.title }}</ion-label>
           </ion-item>
         </ion-menu-toggle>
@@ -23,46 +25,18 @@
 
   <div class="ion-page" id="main-content">
     <ion-header>
-      <ion-toolbar color="tertiary">
+      <ion-toolbar>
         <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <!-- Puedes incluir el logotipo de Propertium Trading aquí -->
-        <ion-title>
-          <div style="display: flex; align-items: center;">
-            <img src="assets/logo Propertium trading/app icon Propertium trading.png" alt="Logotipo de Propertium Trading" style="max-width: 150px; height: auto; margin-right: 5px;">
-            <img src="assets/Propertium_trading__4_-removebg.png" alt="Otra imagen" style="max-width: 300px; height: auto;">
-          </div>
-        </ion-title>
+        <ion-title>propetium</ion-title>
       </ion-toolbar>
     </ion-header>
 
+    
     <ion-content class="ion-padding">
       <ion-router-outlet id="main-content"></ion-router-outlet>
     </ion-content>
+
   </div>
 </ion-app>
-
-<style>
-  /* Estilos para el menú */
-  ion-menu ion-content {
-    --background: var(--ion-item-background, var(--ion-background-color, #fff));
-  }
-
-  ion-menu ion-content {
-    --padding-start: 8px;
-    --padding-end: 8px;
-    --padding-top: 20px;
-    --padding-bottom: 20px;
-  }
-
-  /* Estilos para Android */
-  ion-menu.md ion-list {
-    padding: 20px 0;
-  }
-
-  /* Estilos para iOS */
-  ion-menu.ios ion-content {
-    --padding-bottom: 20px;
-  }
-</style>

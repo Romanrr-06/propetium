@@ -1,19 +1,33 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
-
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
+import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
-
+import { NgChartsModule } from 'ng2-charts';
+import { AuthModule } from '@auth0/auth0-angular';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { NgChartjsModule } from 'ng-chartjs';
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', {
-  enabled: !isDevMode(),
-})],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    NgChartjsModule,
+    NgApexchartsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {}),
+    NgChartsModule,
+    AuthModule.forRoot({
+      domain: 'dev-fxnxeoubwkjca2ea.eu.auth0.com',
+      clientId: 'h6dJDctwsAwejvXQ0zNb3a0Sn8PMGqwH',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }),
+
+  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -6,19 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buscador.page.scss'],
 })
 export class BuscadorPage implements OnInit {
+  items!: any[]; 
+  searchTerm: string = '';
 
   constructor() { }
 
   ngOnInit() {
-  //   searchCustomer(event)
-  //   const text = event?.target.value;
-  //   this.searChedUser = this.users;
-  //   if(text && text.trim() !=''){
-  //     this.searChedUser = this.searChedUser.filter((user: any)=> {
-  //       return (user.name.toLowercase().indexOf(text.toLowerCase)) > -1);
-  //     })  
-  //   }
-  
-  // }
+    
+    this.items = [
+      { name: 'crypto' },
+      { name: 'Elemento 2' },
+    
+    ];
+  }
 
-}}
+  searchItems() {
+    
+    this.items = this.items.filter(item => item.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
+  }
+}

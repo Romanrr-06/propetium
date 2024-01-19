@@ -1,0 +1,10 @@
+// crypto.page.scss
+
+ion-content {
+    --background: rgb(175, 94, 94); // Cambia el fondo de ion-content a negro
+  
+    canvas {
+      background-color: rgb(255, 255, 255) !important; // Cambia el fondo del gráfico a negro
+    }
+  }
+  

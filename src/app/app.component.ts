@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -6,13 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/catalogo', icon: 'mail' },
-    { title: 'Outbox', url: '/sobre', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/login', icon: 'heart' },
-    { title: 'Archived', url: '/quizz', icon: 'archive' },
-    { title: 'Trash', url: '/crypto', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+    { title: 'catalogo', url: '/catalogo', icon: 'mail', login_hide: true  },
+    { title: 'abouth', url: '/sobre', icon: 'paper-plane', login_hide: true  },
+    { title: 'login', url: '/login', icon: 'heart', login_hide: false  },
+    { title: 'quizz', url: '/quizz', icon: 'archive' , login_hide: true },
+    { title: 'crypto', url: '/crypto', icon: 'trash', login_hide: true  },
+    { title: 'Search', url: '/buscador', icon: 'warning', login_hide: true },
+    { title: 'game', url: '/cryto-game', icon: 'cloud', login_hide: true }
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+
+  constructor(public auth: AuthService) {}
 }
