@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crypto Game</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crypto Game</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item>
+    <ion-label>El precio actual de la criptomoneda es: {{ currentPrice }} USD</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>¿El precio subirá o bajará?</ion-label>
+    <ion-select [(ngModel)]="userGuess">
+      <ion-select-option value="up">Subirá</ion-select-option>
+      <ion-select-option value="down">Bajará</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="full" (click)="makeGuess()">Hacer Estimación</ion-button>
+
+  <ion-item *ngIf="result">
+    <ion-label>{{ result }}</ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Tus puntos: {{ points }}</ion-label>
+  </ion-item>
+</ion-content>

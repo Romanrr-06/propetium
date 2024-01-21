@@ -8,6 +8,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { AuthModule } from '@auth0/auth0-angular';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgChartjsModule } from 'ng-chartjs';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -15,6 +17,7 @@ import { NgChartjsModule } from 'ng-chartjs';
     IonicModule.forRoot(),
     AppRoutingModule,
     NgChartjsModule,
+    FormsModule,
     NgApexchartsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {}),
     NgChartsModule,
