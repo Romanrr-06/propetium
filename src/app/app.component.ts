@@ -15,7 +15,7 @@ export class AppComponent {
     { title: 'crypto', url: '/crypto', icon: 'trash', login_hide: true  },
     { title: 'Search', url: '/buscador', icon: 'warning', login_hide: true },
     { title: 'game', url: '/crypto-game', icon: 'cloud', login_hide: true },
-    { title: 'game', url: '/ruleta', icon: 'cloud', login_hide: true },
+    { title: 'ruleta', url: '/ruleta', icon: 'cloud', login_hide: true },
   ];
 
   constructor(public auth: AuthService) {}

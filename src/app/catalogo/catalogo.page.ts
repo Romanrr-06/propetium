@@ -2,10 +2,13 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-catalogo',
-  templateUrl: 'catalogo.page.html',
+  templateUrl: './catalogo.page.html',
   styleUrls: ['catalogo.page.scss'],
 })
-export class CatalogoPage {
+export class CatalogoPage  {
+  [x: string]: any;
+  constructor() { }
+  public push: any;
   catalogoItems = [
     {
       nombre: 'Casa',
@@ -28,21 +31,22 @@ export class CatalogoPage {
       imagenActual: 0,
       precio: '$120,000',
     },
-    {
-      nombre: 'Casa',
-      descripcion: 'Descripción de la Casa 4',
-      imagenes: ['URL_imagen_4_1.jpg', 'URL_imagen_4_2.jpg', 'URL_imagen_4_3.jpg'],
-      imagenActual: 0,
-      precio: '$130,000',
-    },
-    {
-      nombre: 'Casa',
-      descripcion: 'Descripción de la Casa 5',
-      imagenes: ['URL_imagen_5_1.jpg', 'URL_imagen_5_2.jpg', 'URL_imagen_5_3.jpg'],
-      imagenActual: 0,
-      precio: '$110,000',
-    },
-  ];  
+  ];
+    // {
+    //   nombre: 'Casa',
+    //   descripcion: 'Descripción de la Casa 4',
+    //   imagenes: ['URL_imagen_4_1.jpg', 'URL_imagen_4_2.jpg', 'URL_imagen_4_3.jpg'],
+    //   imagenActual: 0,
+    //   precio: '$130,000',
+    // },
+    // {
+    //   nombre: 'Casa',
+    //   descripcion: 'Descripción de la Casa 5',
+    //   imagenes: ['URL_imagen_5_1.jpg', 'URL_imagen_5_2.jpg', 'URL_imagen_5_3.jpg'],
+    //   imagenActual: 0,
+    //   precio: '$110,000',
+    // },
+  
 
   cambiarImagenSiguiente(item: any) {
     if (item.imagenActual < item.imagenes.length - 1) {
@@ -60,8 +64,13 @@ export class CatalogoPage {
     }
   }
 
-  verMasInfo(item: any) {
-    console.log('Mostrar más información de:', item);
-   
-  }
+
+// valor= 'nombre';
+//   routingViaNavParms () {
+//     this.navCtrl.navigateForward(['/tienda', this.valor]);
+// //     }
+//   masinformacion(){
+    
+//   }
+  
 }

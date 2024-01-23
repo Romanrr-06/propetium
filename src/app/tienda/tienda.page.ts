@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tienda',
   templateUrl: './tienda.page.html',
   styleUrls: ['./tienda.page.scss'],
 })
-export class TiendaPage implements OnInit {
 
-  constructor() { }
+export class TiendaPage implements OnInit {
   catalogoItems = [
     {
       nombre: 'Casa',
@@ -30,43 +30,10 @@ export class TiendaPage implements OnInit {
       imagenActual: 0,
       precio: '$120,000',
     },
-    {
-      nombre: 'Casa',
-      descripcion: 'Descripción de la Casa 4',
-      imagenes: ['URL_imagen_4_1.jpg', 'URL_imagen_4_2.jpg', 'URL_imagen_4_3.jpg'],
-      imagenActual: 0,
-      precio: '$130,000',
-    },
-    {
-      nombre: 'Casa',
-      descripcion: 'Descripción de la Casa 5',
-      imagenes: ['URL_imagen_5_1.jpg', 'URL_imagen_5_2.jpg', 'URL_imagen_5_3.jpg'],
-      imagenActual: 0,
-      precio: '$110,000',
-    },
-  ];  
+  ];
 
-  cambiarImagenSiguiente(item: any) {
-    if (item.imagenActual < item.imagenes.length - 1) {
-      item.imagenActual++;
-    } else {
-      item.imagenActual = 0;
-    }
-  }
+  constructor() { }
 
-  cambiarImagenAnterior(item: any) {
-    if (item.imagenActual > 0) {
-      item.imagenActual--;
-    } else {
-      item.imagenActual = item.imagenes.length - 1;
-    }
-  }
-
-  verMasInfo(item: any) {
-    console.log('Mostrar más información de:', item);
-   
-  }
   ngOnInit() {
   }
-
 }

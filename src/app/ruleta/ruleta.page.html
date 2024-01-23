@@ -1,3 +1,5 @@
+<!-- ruleta.page.html -->
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Ruleta</ion-title>
@@ -13,7 +15,6 @@
 
   <ion-button (click)="spinWheel()" expand="full">Girar Ruleta</ion-button>
 
-  <!-- Agrega la estructura de la ruleta aquí -->
   <div class="roulette-container">
     <img *ngFor="let image of images" [src]="image" class="roulette-image" />
   </div>

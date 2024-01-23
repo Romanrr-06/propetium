@@ -6,6 +6,7 @@
     templateUrl: './crypto.page.html',
     styleUrls: ['./crypto.page.scss'],
   })
+
   export class CryptoPage implements OnInit {
     public lineChartData: ChartDataset[] = [
       { data: [65, 59, 80, 81, 56, 55, 40], label: 'Precio' },
