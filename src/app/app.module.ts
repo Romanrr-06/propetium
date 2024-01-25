@@ -9,9 +9,10 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgChartjsModule } from 'ng-chartjs';
 import { FormsModule } from '@angular/forms';
+// import { FilterPipe } from './filtro.pipe';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
@@ -23,7 +24,7 @@ import { FormsModule } from '@angular/forms';
     NgChartsModule,
     AuthModule.forRoot({
       domain: 'dev-fxnxeoubwkjca2ea.eu.auth0.com',
-      clientId: 'h6dJDctwsAwejvXQ0zNb3a0Sn8PMGqwH',
+      clientId: 'fSBOzdoh3HZOjXtxDqMCkY38kslJGQfi',
       authorizationParams: {
         redirect_uri: window.location.origin
       }

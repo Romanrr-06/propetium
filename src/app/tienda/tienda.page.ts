@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+
 @Component({
   selector: 'app-tienda',
   templateUrl: './tienda.page.html',
@@ -8,7 +9,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class TiendaPage implements OnInit {
-  catalogoItems = [
+  public x:  any;
+  public push: any;
+  public item: any;
+  Items = [
     {
       nombre: 'Casa',
       descripcion: 'Descripción de la Casa 1',
@@ -31,9 +35,31 @@ export class TiendaPage implements OnInit {
       precio: '$120,000',
     },
   ];
+  activatedRoute: any;
 
-  constructor() { }
 
-  ngOnInit() {
+  constructor(public route: ActivatedRoute) { }
+
+  cambiarImagenSiguiente(item: any) {
+    if (item.imagenActual < item.imagenes.length - 1) {
+      item.imagenActual++;
+    } else {
+      item.imagenActual = 0;
+    }
   }
-}
+
+  cambiarImagenAnterior(item: any) {
+    if (item.imagenActual > 0) {
+      item.imagenActual--;
+    } else {
+      item.imagenActual = item.imagenes.length - 1;
+    }
+  }
+  
+  ngOnInit() {
+  this.route.params.subscribe(params =>{
+    this.item  = params;
+
+    console.log(`${this.item}`);
+  });
+  }}

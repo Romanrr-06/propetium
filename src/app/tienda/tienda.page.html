@@ -1,13 +1,32 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-button routerLink="/catalogo">back</ion-button>
+  <ion-header>
+    <ion-toolbar>
+      <ion-button routerLink="/catalogo">back</ion-button>
 
-    <ion-title>
-      Detalles de la Casa
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+      <ion-title>
+        Detalles de la Casa
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
 
-
-      <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let item of catalogoItems">
+  
+  <ion-row>
+    <ion-col size="12" size-sm="6" size-md="4" size-lg="3"  >
+      <ion-card>
+        <div class="image-container">
+          <ion-button (click)="cambiarImagenAnterior(item)" class="arrow-button" size="small">Anterior</ion-button>
+          <img [src]="item.imagenes[item.imagenActual]" alt="{{ item.imagenes }}" />
+          <ion-button (click)="cambiarImagenSiguiente(item)" class="arrow-button" size="small">Siguiente</ion-button>
+        </div>
+        <ion-card-header>
+          <ion-card-title>{{ item.nombre }}</ion-card-title>
+          <ion-card-subtitle>{{ item.descripcion }}</ion-card-subtitle>
+          <p>Precio: {{ item.precio }}</p>
+        </ion-card-header>
+        <ion-card-content>
+          
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  

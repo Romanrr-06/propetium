@@ -44,10 +44,6 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'buscador',
-    loadChildren: () => import('./buscador/buscador.module').then( m => m.BuscadorPageModule)
-  },
-  {
     path: 'crypto-game',
     loadChildren: () => import('./crypto-game/crypto-game.module').then( m => m.CryptoGamePageModule)
   },
