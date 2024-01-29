@@ -59,6 +59,14 @@ const routes: Routes = [
     path: 'banck',
     loadChildren: () => import('./banck/banck.module').then( m => m.BanckPageModule)
   },
+  {
+    path: 'community',
+    loadChildren: () => import('./community/community.module').then( m => m.CommunityPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
 
   
 ];

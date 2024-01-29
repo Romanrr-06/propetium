@@ -6,12 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./crypto-game.page.scss'],
 })
 export class CryptoGamePage {
-  currentPrice: number;
-  userGuess: 'up' | 'down' | undefined;
-  result: string | undefined;
-  points = 0;
-  pointsInBank = 0;
-  minPointsToTransfer = 50; // Cantidad mínima de puntos para transferir al banco
+ public currentPrice: number;
+  public userGuess: 'up' | 'down' | undefined;
+  public result: string | undefined;
+  public points = 0;
+  public pointsInBank = 0;
+  public minPointsToTransfer = 120; 
 
   constructor() {
     this.currentPrice = this.getRandomPrice();
@@ -31,7 +31,7 @@ export class CryptoGamePage {
         this.points += 10;
         this.result = `¡Correcto! Ganaste 10 puntos.`;
 
-        // Verificar si se alcanzó la cantidad mínima para transferir al banco
+        
         if (this.points >= this.minPointsToTransfer) {
           this.transferPointsToBank();
         }

@@ -8,14 +8,14 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'catalogo', url: '/catalogo', icon: 'mail', login_hide: true  },
-    { title: 'abouth', url: '/sobre', icon: 'paper-plane'  },
-    { title: 'login', url: '/login', icon: 'heart', login_hide: false  },
-    { title: 'quizz', url: '/quizz', icon: 'archive' , login_hide: true },
-    { title: 'crypto', url: '/crypto', icon: 'trash', login_hide: true  },
-    { title: 'Search', url: '/buscador', icon: 'warning', login_hide: true },
-    { title: 'game', url: '/crypto-game', icon: 'cloud', login_hide: true },
-    { title: 'ruleta', url: '/ruleta', icon: 'cloud', login_hide: true },
+    { title: 'login', url: '/login', icon: 'log-in', login_hide: false  },
+    { title: 'catalogo', url: '/catalogo', icon: 'bookmarks', login_hide: true  },
+    { title: 'abouth', url: '/sobre', icon: 'people',  login_hide: true },
+    { title: 'Home', url: '/home', icon: 'home', login_hide: true},
+    { title: 'crypto', url: '/crypto', icon:'logo-bitcoin', login_hide: true  },
+    { title: 'game', url: '/crypto-game', icon: 'logo-game-controller-b', login_hide: true },
+    { title: 'ruleta', url: '/ruleta', icon: 'gift', login_hide: true },
+    // { title: 'ruleta', url: '/', icon: 'cloud', login_hide: true },
   ];
 
   constructor(public auth: AuthService) {}

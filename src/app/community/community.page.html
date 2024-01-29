@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item>
+      <ion-button routerLink="/home">back</ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-title>Community</ion-title>
+<ion-content [fullscreen]="true">
+
+  <ion-item>
+    <ion-input placeholder="Escribe tu mensaje" [(ngModel)]="mensaje"></ion-input>
+  </ion-item>
+  
+  <ion-button expand="full" (click)="publicarMensaje()">Publicar</ion-button>
+
+</ion-content>

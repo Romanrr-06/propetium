@@ -1,9 +1,8 @@
-// Estilos para el ion-header y el ion-content
 ion-header {
     ion-toolbar {
       ion-title {
         text-align: center;
-        color: white; // Texto en color blanco
+        color: white; 
       }
     }
   }
@@ -52,19 +51,19 @@ ion-header {
   
 
 
-  // Estilos para ion-header y ion-content (no afecta el degradado)
+ 
 ion-header {
   ion-toolbar {
     ion-title {
       text-align: center;
-      color: white; // Texto en color blanco
+      color: white; 
     }
   }
 }
 
 ion-content {
   .ion-padding {
-    /* No se modifica el degradado existente */
+   
     color: white;
     font-family: 'Arial', sans-serif;
 

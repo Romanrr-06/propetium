@@ -1,4 +1,7 @@
 <ion-content [fullscreen]="true">
+<ion-item>
+  <ion-button routerLink="/home">back</ion-button>
+</ion-item>
   <ion-button (click)="login()" *ngIf="!(auth.isAuthenticated$ | async)">
     <ion-icon name="log-in"></ion-icon>
     Iniciar sesión

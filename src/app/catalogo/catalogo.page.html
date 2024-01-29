@@ -1,8 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      Catálogo
-    </ion-title>
+    <ion-item>
+      <ion-button routerLink="/home">back</ion-button>
+    </ion-item>
+   
+   
+
   </ion-toolbar>
 </ion-header>
 
@@ -14,10 +17,18 @@
           <div class="image-container">
             <ion-button (click)="cambiarImagenAnterior(item)" class="arrow-button" size="small">Anterior</ion-button>
             <img [src]="item.imagenes[item.imagenActual]" alt="{{ item.nombre }}" />
+            <ion-item>
+              
             <ion-button (click)="cambiarImagenSiguiente(item)" class="arrow-button" size="small">Siguiente</ion-button>
+            <ion-button [routerLink]="['/']" >
+              <ion-icon name="bookmarks-sharp"></ion-icon>
+            </ion-button>
+          
+          </ion-item>
           </div>
           <ion-card-header>
-            <ion-card-title>{{ item.nombre }}</ion-card-title>
+            
+                <ion-card-title>{{ item.nombre }}</ion-card-title>
             <ion-card-subtitle>{{ item.descripcion }}</ion-card-subtitle>
             <p>Precio: {{ item.precio }}</p>
           </ion-card-header>
