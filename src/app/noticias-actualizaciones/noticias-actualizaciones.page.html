@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Noticias y Actualizaciones
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Sección de Noticias -->
+  <ion-card>
+    <ion-card-header>
+      Noticias
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let noticia of noticias">
+          {{ noticia.titulo }}
+          <p>{{ noticia.contenido }}</p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Sección de Actualizaciones -->
+  <ion-card>
+    <ion-card-header>
+      Actualizaciones
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let actualizacion of actualizaciones">
+          {{ actualizacion.titulo }}
+          <p>{{ actualizacion.contenido }}</p>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,15 +1,21 @@
 <ion-content [fullscreen]="true">
-  <ion-button (click)="login()" *ngIf="(auth.isAuthenticated$ | async) === false">
-    Login
+  <ion-button (click)="login()" *ngIf="!(auth.isAuthenticated$ | async)">
+    <ion-icon name="log-in"></ion-icon>
+    Iniciar sesión
   </ion-button>
 
-  <ion-button (click)="logout()" *ngIf="(auth.isAuthenticated$ | async) === true">
-    Logout
+  <ion-button (click)="logout()" *ngIf="(auth.isAuthenticated$ | async)">
+    <ion-icon name="log-out"></ion-icon>
+    Cerrar sesión
   </ion-button>
 
-  <ul *ngIf="auth.user$ | async as user">
-    <li>{{ user.name }}</li>
-    <li>{{ user.email }}</li>
-  </ul>
-
+  <div *ngIf="auth.user$ | async as user" class="user-info">
+    <ion-avatar>
+      <img [src]="user.picture" alt="User Avatar">
+    </ion-avatar>
+    <div class="user-details">
+      <h2>{{ user.name }}</h2>
+      <p>{{ user.email }}</p>
+    </div>
+  </div>
 </ion-content>

@@ -9,16 +9,17 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgChartjsModule } from 'ng-chartjs';
 import { FormsModule } from '@angular/forms';
+
 // import { FilterPipe } from './filtro.pipe';
 
 @NgModule({
   declarations: [AppComponent,],
   imports: [
-    BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     NgChartjsModule,
     FormsModule,
+    BrowserModule,
     NgApexchartsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {}),
     NgChartsModule,
@@ -31,7 +32,11 @@ import { FormsModule } from '@angular/forms';
     }),
 
   ],
-  providers: [],
+  providers: [ 
+  ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  
+}
+

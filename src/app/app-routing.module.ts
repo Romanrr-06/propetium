@@ -5,7 +5,7 @@ import { AuthGuard } from '@auth0/auth0-angular';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'sobre',
     pathMatch: 'full'
   },
   {
@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: 'sobre',
     loadChildren: () => import('./sobre/sobre.module').then( m => m.SobrePageModule),
-
+    
   },
   {
     path: 'crypto',
@@ -46,6 +46,18 @@ const routes: Routes = [
   {
     path: 'crypto-game',
     loadChildren: () => import('./crypto-game/crypto-game.module').then( m => m.CryptoGamePageModule)
+  },
+  {
+    path: 'noticias-actualizaciones',
+    loadChildren: () => import('./noticias-actualizaciones/noticias-actualizaciones.module').then( m => m.NoticiasActualizacionesPageModule)
+  },
+  {
+    path: 'inventory',
+    loadChildren: () => import('./inventory/inventory.module').then( m => m.InventoryPageModule)
+  },
+  {
+    path: 'banck',
+    loadChildren: () => import('./banck/banck.module').then( m => m.BanckPageModule)
   },
 
   

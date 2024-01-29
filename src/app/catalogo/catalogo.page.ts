@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-catalogo',
@@ -74,15 +73,12 @@ export class CatalogoPage  {
 //   masinformacion(){
     
 //   }
-constructor(private searchService: SearchService) {}
+constructor() {}
 
 // ...
 
-ngOnInit(): void {
-  this.searchService.searchQuery$.subscribe((query: any) => {
-    // Handle the search query, e.g., filter items based on the query
-    console.log('Search Query:', query);
-  });
+ngOnInit() {
+  
 }  
 }
 

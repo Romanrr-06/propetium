@@ -15,7 +15,7 @@
       <ion-card>
         <div class="image-container">
           <ion-button (click)="cambiarImagenAnterior(item)" class="arrow-button" size="small">Anterior</ion-button>
-          <img [src]="item.imagenes[item.imagenActual]" alt="{{ item.imagenes }}" />
+          <img [src]="item.imagenes[item.imagenActual]" alt="{{ item.nombre }}" />
           <ion-button (click)="cambiarImagenSiguiente(item)" class="arrow-button" size="small">Siguiente</ion-button>
         </div>
         <ion-card-header>

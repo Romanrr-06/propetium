@@ -1,0 +1,32 @@
+/* ruleta.page.scss */
+
+ion-content {
+    .roulette-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px; /* Set an appropriate height for the container */
+      overflow: hidden;
+    }
+  
+    .roulette-image {
+      width: 100%;
+      height: auto;
+      max-width: 200px; /* Set an appropriate max-width for the images */
+      transform-origin: center center;
+    }
+  
+    .rotate-animation {
+      animation: rotate 3s ease-out; /* Adjust the duration and timing function as needed */
+    }
+  
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  
