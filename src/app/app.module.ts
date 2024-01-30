@@ -17,12 +17,12 @@ import { FormsModule } from '@angular/forms';
   imports: [
     IonicModule.forRoot(),
     AppRoutingModule,
-    NgChartjsModule,
+    // NgChartjsModule,
     FormsModule,
     BrowserModule,
-    NgApexchartsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {}),
-    NgChartsModule,
+    // NgApexchartsModule,
+    // ServiceWorkerModule.register('ngsw-worker.js', {}),
+    // NgChartsModule,
     AuthModule.forRoot({
       domain: 'dev-fxnxeoubwkjca2ea.eu.auth0.com',
       clientId: 'fSBOzdoh3HZOjXtxDqMCkY38kslJGQfi',

@@ -45,23 +45,28 @@ const routes: Routes = [
   },
   {
     path: 'crypto-game',
-    loadChildren: () => import('./crypto-game/crypto-game.module').then( m => m.CryptoGamePageModule)
+    loadChildren: () => import('./crypto-game/crypto-game.module').then( m => m.CryptoGamePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'noticias-actualizaciones',
-    loadChildren: () => import('./noticias-actualizaciones/noticias-actualizaciones.module').then( m => m.NoticiasActualizacionesPageModule)
+    loadChildren: () => import('./noticias-actualizaciones/noticias-actualizaciones.module').then( m => m.NoticiasActualizacionesPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'inventory',
-    loadChildren: () => import('./inventory/inventory.module').then( m => m.InventoryPageModule)
+    loadChildren: () => import('./inventory/inventory.module').then( m => m.InventoryPageModule),
+   canActivate: [ AuthGuard] 
   },
   {
     path: 'banck',
-    loadChildren: () => import('./banck/banck.module').then( m => m.BanckPageModule)
+    loadChildren: () => import('./banck/banck.module').then( m => m.BanckPageModule),
+    canActivate: [ AuthGuard]
   },
   {
     path: 'community',
-    loadChildren: () => import('./community/community.module').then( m => m.CommunityPageModule)
+    loadChildren: () => import('./community/community.module').then( m => m.CommunityPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'home',
