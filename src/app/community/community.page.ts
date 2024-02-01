@@ -6,19 +6,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./community.page.scss'],
 })
 export class CommunityPage implements OnInit {
-  mensaje: string = "";  // Variable para almacenar el mensaje
+  mensaje: string = "";
+  mensajes: string[] = [];
+  palabrasProhibidas: string[] = ['palabra1', 'palabra2', 'palabra3']; // Agrega las palabras que quieras prohibir
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   publicarMensaje() {
-    if (this.mensaje.trim() !== "") {
-      console.log("Mensaje publicado:", this.mensaje);
-      this.mensaje = "";
+    if (this.mensaje.trim() ) {
+      if (this.contienePalabraProhibida(this.mensaje)) {
+        console.log("Mensaje bloqueado: Contiene una palabra prohibida");
+        // Aquí puedes agregar lógica para mostrar un mensaje de baneo
+        // o tomar acciones adicionales.
+      } else {
+        console.log("Mensaje publicado:", this.mensaje);
+        this.mensajes.push(this.mensaje);
+        this.mensaje = "";
+      }
     } else {
       console.log("Error: El mensaje no puede estar vacío");
     }
+  }
+
+  contienePalabraProhibida(mensaje: string): boolean {
+    return this.palabrasProhibidas.some((palabra) =>
+      mensaje.toLowerCase().includes(palabra.toLowerCase())
+    );
   }
 }

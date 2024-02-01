@@ -3,11 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { NgChartsModule } from 'ng2-charts';
+// import { ServiceWorkerModule } from '@angular/service-worker';
+// import { NgChartsModule } from 'ng2-charts';
 import { AuthModule } from '@auth0/auth0-angular';
-import { NgApexchartsModule } from 'ng-apexcharts';
-import { NgChartjsModule } from 'ng-chartjs';
+// import { NgApexchartsModule } from 'ng-apexcharts';
+// import { NgChartjsModule } from 'ng-chartjs';
 import { FormsModule } from '@angular/forms';
 
 // import { FilterPipe } from './filtro.pipe';
@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     IonicModule.forRoot(),
     AppRoutingModule,
+    FormsModule, 
     // NgChartjsModule,
     FormsModule,
     BrowserModule,

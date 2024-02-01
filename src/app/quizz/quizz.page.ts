@@ -1,4 +1,6 @@
+
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-quizz',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./quizz.page.scss'],
 })
 export class QuizzPage implements OnInit {
+ public preguntas: any[] = []; 
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
-}
+  }

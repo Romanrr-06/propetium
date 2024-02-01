@@ -1,17 +1,45 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-item>
-      <ion-button routerLink="/home">back</ion-button>
-    </ion-item>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Community</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-button routerLink="/asistend">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+
   </ion-toolbar>
 </ion-header>
-<ion-title>Community</ion-title>
+
 <ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Escribe tu mensaje</ion-card-title>
+    </ion-card-header>
 
-  <ion-item>
-    <ion-input placeholder="Escribe tu mensaje" [(ngModel)]="mensaje"></ion-input>
-  </ion-item>
-  
-  <ion-button expand="full" (click)="publicarMensaje()">Publicar</ion-button>
+    <ion-card-content>
+      <ion-item>
+        <ion-input
+          placeholder="Escribe tu mensaje"
+          [(ngModel)]="mensaje"
+          (keyup.enter)="publicarMensaje()"
+        ></ion-input>
+      </ion-item>
 
-</ion-content>
+      <ion-button expand="full" (click)="publicarMensaje()">
+        Publicar
+      </ion-button>
+      <ion-list>
+        <ion-item *ngFor="let mensajeItem of mensajes">
+          {{ mensajeItem }}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+

@@ -72,6 +72,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+  {
+    path: 'asistend',
+    loadChildren: () => import('./asistend/asistend.module').then( m => m.AsistendPageModule)
+  },
 
   
 ];

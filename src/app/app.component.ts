@@ -15,6 +15,7 @@ export class AppComponent {
     { title: 'crypto', url: '/crypto', icon:'logo-bitcoin', login_hide: true  },
     { title: 'game', url: '/crypto-game', icon: 'logo-game-controller-b', login_hide: true },
     { title: 'ruleta', url: '/ruleta', icon: 'gift', login_hide: true },
+    { title: 'ruleta', url: '/asistend', icon: 'gift', login_hide: true },
     // { title: 'ruleta', url: '/', icon: 'cloud', login_hide: true },
   ];
 

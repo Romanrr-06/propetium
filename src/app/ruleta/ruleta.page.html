@@ -7,16 +7,3 @@
   <ion-title>Ruleta</ion-title>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Ruleta</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-button (click)="spinWheel()" expand="full" [disabled]="!spinAllowed">Girar Ruleta</ion-button>
-
-  <div class="roulette-container">
-    <img *ngFor="let image of images" [src]="image" class="roulette-image" />
-  </div>
-</ion-content>

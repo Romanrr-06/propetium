@@ -1,11 +1,11 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-item>
-      <ion-button routerLink="/home">back</ion-button>
-    </ion-item>
-   
-   
-
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Community</ion-title>
   </ion-toolbar>
 </ion-header>
 
