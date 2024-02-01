@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-community',
@@ -6,27 +7,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./community.page.scss'],
 })
 export class CommunityPage implements OnInit {
-  mensaje: string = "";
+  mensaje: string = '';
   mensajes: string[] = [];
-  palabrasProhibidas: string[] = ['palabra1', 'palabra2', 'palabra3']; // Agrega las palabras que quieras prohibir
+  palabrasProhibidas: string[] = ['palabra1', 'palabra2', 'palabra3'];
+  user: any;
 
-  constructor() {}
+  constructor(public auth: AuthService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.auth.user$.subscribe((user) => {
+      console.log('User Data:', user); // Log user data to the console for debugging
+      this.user = user;
+    });
+  }
 
   publicarMensaje() {
-    if (this.mensaje.trim() ) {
+    if (this.mensaje.trim()) {
       if (this.contienePalabraProhibida(this.mensaje)) {
-        console.log("Mensaje bloqueado: Contiene una palabra prohibida");
-        // Aquí puedes agregar lógica para mostrar un mensaje de baneo
-        // o tomar acciones adicionales.
+        console.log('Mensaje bloqueado: Contiene una palabra prohibida');
+        // Puedes agregar lógica para mostrar un mensaje de baneo o tomar acciones adicionales.
       } else {
-        console.log("Mensaje publicado:", this.mensaje);
-        this.mensajes.push(this.mensaje);
-        this.mensaje = "";
+        console.log('Mensaje publicado:', this.mensaje);
+        this.mensajes.unshift(this.mensaje); // Agrega mensajes en la parte superior
+        this.mensaje = '';
       }
     } else {
-      console.log("Error: El mensaje no puede estar vacío");
+      console.log('Error: El mensaje no puede estar vacío');
     }
   }
 
@@ -34,5 +40,12 @@ export class CommunityPage implements OnInit {
     return this.palabrasProhibidas.some((palabra) =>
       mensaje.toLowerCase().includes(palabra.toLowerCase())
     );
+  }
+
+  getCurrentTime(): string {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    return `${hours}:${minutes}`;
   }
 }

@@ -5,22 +5,21 @@
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Community</ion-title>
 
-    <ion-buttons slot="start">
+    <ion-title>Comunidad</ion-title>
+
+    <ion-buttons slot="end">
       <ion-button routerLink="/asistend">
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        <ion-icon slot="icon-only" name="people"></ion-icon>
       </ion-button>
     </ion-buttons>
-    
-
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="community-content">
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Escribe tu mensaje</ion-card-title>
+      <ion-card-title>¡Comparte tu mensaje!</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
@@ -32,14 +31,29 @@
         ></ion-input>
       </ion-item>
 
-      <ion-button expand="full" (click)="publicarMensaje()">
+      <ion-button expand="full" (click)="publicarMensaje()" [disabled]="!mensaje.trim()">
         Publicar
       </ion-button>
-      <ion-list>
+      <ion-list *ngIf="user && user.picture && mensajes.length > 0">
         <ion-item *ngFor="let mensajeItem of mensajes">
-          {{ mensajeItem }}
+          <ion-avatar>
+            <img [src]="user.picture" >
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ user.name }}</h2>
+            <p>{{ mensajeItem }}</p>
+            <ion-note>
+              <ion-icon name="time-outline"></ion-icon>
+              {{ getCurrentTime() }}
+            </ion-note>
+          </ion-label>
         </ion-item>
       </ion-list>
+
+
+      <div *ngIf="mensajes.length === 0" class="empty-message">
+        ¡Aún no hay mensajes en la comunidad!
+      </div>
     </ion-card-content>
   </ion-card>
-
+</ion-content>

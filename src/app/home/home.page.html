@@ -1,109 +1,22 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Home</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>{{ pageTitle }}</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content  class="home-content">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Home</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  
+  <ion-item *ngFor="let item of menuItems" class="menu-item">
+    <ion-button [routerLink]="[item.link]" class="custom-button" fill="solid">
+      <ion-icon [name]="item.icon"></ion-icon>
+      {{ item.label }}
+    </ion-button>
+  </ion-item>
 </ion-content>
-
-
-<!-- banck -->
-<ion-item>
-  <ion-button [routerLink]="['/banck']" >
-    <ion-icon name="logo-bitcoin"></ion-icon>
-  banck </ion-button>
-</ion-item>
-
-
-<!-- catalogo -->
-<ion-item>
-<ion-button [routerLink]="['/catalogo']" >
-  <ion-icon name="bag-add-sharp"></ion-icon> Catalogue</ion-button>
-</ion-item>
-
-
-<!-- community -->
-<ion-item>
-  <ion-button [routerLink]="['/community']" >
-    <ion-icon name="people"></ion-icon>
- community</ion-button>
-  </ion-item>
-
-
-<!-- crypto -->
-  <ion-item>
-    <ion-button [routerLink]="['/crypto']" >  crypto  
-      <ion-icon name="bookmarks-sharp"></ion-icon>
-</ion-button>
-    </ion-item>
-
-
-<!-- crypto-game -->
-<ion-item>
-  <ion-button [routerLink]="['/crypto-game']" >
-<ion-icon name="logo-game-controller-a"></ion-icon> 
-crypto-game </ion-button>
-  </ion-item>
-  
-  
-
-  <!-- inventory  -->
-  <ion-item>
-    <ion-button [routerLink]="['/inventory']" >
-      <ion-icon name="server"></ion-icon> 
-       inventory 
-     </ion-button>
-    </ion-item>
-
-
-      <!-- login  -->
-  <ion-item>
-    <ion-button [routerLink]="['/login']" >
-      <ion-icon name="shield-checkmark"></ion-icon>  login  </ion-button>
-    </ion-item>
-    
-
-      <!-- noticias-actualizaciones -->
-  <ion-item>
-    <ion-button [routerLink]="['/noticias-actualizaciones']" >
-      <ion-icon name="shield-checkmark"></ion-icon> noticias y actualizaciones  </ion-button>
-    </ion-item>
-
-
-    
-      <!-- quizz -->
-  <ion-item>
-    <ion-button [routerLink]="['/quizz']" >
-      <ion-icon name="help-circle-sharp"></ion-icon>quizz </ion-button>
-    </ion-item>
-
-
-    
-      <!-- ruleta -->
-  <ion-item>
-    <ion-button [routerLink]="['/ruleta']" >
-      <ion-icon name="help-circle-sharp"></ion-icon>ruleta</ion-button>
-    </ion-item>
-
-    
-      <!-- sobre  -->
-  <ion-item>
-    <ion-button [routerLink]="['/sobre']" >
-      <ion-icon name="people-sharp"></ion-icon>Nosotros</ion-button>
-    </ion-item>
-
- 
-      <!-- tienda -->
-  <ion-item>
-    <ion-button [routerLink]="['/tienda']" >
-      <ion-icon name="bag-add-sharp"></ion-icon>  store  </ion-button>
-    </ion-item>
-
-
-
