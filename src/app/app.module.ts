@@ -4,13 +4,12 @@ import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 // import { ServiceWorkerModule } from '@angular/service-worker';
-// import { NgChartsModule } from 'ng2-charts';
 import { AuthModule } from '@auth0/auth0-angular';
 // import { NgApexchartsModule } from 'ng-apexcharts';
-// import { NgChartjsModule } from 'ng-chartjs';
 import { FormsModule } from '@angular/forms';
-
+;
 // import { FilterPipe } from './filtro.pipe';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [AppComponent,],
@@ -18,12 +17,12 @@ import { FormsModule } from '@angular/forms';
     IonicModule.forRoot(),
     AppRoutingModule,
     FormsModule, 
-    // NgChartjsModule,
+    NgChartsModule,
+    NgChartsModule,
     FormsModule,
     BrowserModule,
-    // NgApexchartsModule,
-    // ServiceWorkerModule.register('ngsw-worker.js', {}),
-    // NgChartsModule,
+
+    // ServiceWorker.register('ngsw-worker.js', {}),
     AuthModule.forRoot({
       domain: 'dev-fxnxeoubwkjca2ea.eu.auth0.com',
       clientId: 'fSBOzdoh3HZOjXtxDqMCkY38kslJGQfi',

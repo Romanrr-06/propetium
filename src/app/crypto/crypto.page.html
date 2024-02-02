@@ -1,31 +1,26 @@
-<ion-header>
+<!-- crypto.page.html -->
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-item>
-      <ion-button routerLink="/home">back</ion-button>
-    </ion-item>
+    <ion-title class="header-title">Crypto Trading</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  
-  <ion-header collapse="condense">
-    <ion-toolbar>
 
-    </ion-toolbar>
-  </ion-header>
-
-
-  <ion-title size="large">crypto</ion-title>
-  <div style="display: block;">
+<ion-content >
+  <div class="chart-container">
     <canvas baseChart
-            [datasets]="lineChartData"
-            [labels]="lineChartLabels"
-            [options]="lineChartOptions"
-            [plugins]="lineChartPlugins"
-            [legend]="lineChartLegend"
-            [type]="lineChartType"
-            [ngClass]="{'custom-class': true}"
-            [ngStyle]="{'background-color': 'red'}">
+      [datasets]="chartData.datasets"
+      [labels]="chartData.labels"
+      [options]="chartOptions"
+      [type]="chartType">
     </canvas>
+  </div>
+
+  <div class="info-container">
+    <p class="balance-text">Saldo actual: {{ balance }} USD</p>
+    <p class="crypto-text">Cantidad de criptomonedas: {{ cryptoAmount }}</p>
+
+    <ion-button class="buy-button" (click)="buyCrypto()">Comprar</ion-button>
+    <ion-button class="sell-button" (click)="sellCrypto()">Vender</ion-button>
   </div>
 </ion-content>

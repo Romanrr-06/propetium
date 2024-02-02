@@ -1,10 +1,29 @@
-// crypto.page.scss
-
-ion-content {
-    --background: rgb(175, 94, 94); // Cambia el fondo de ion-content a negro
+/* crypto.page.scss */
+ion-title.header-title {
+    font-size: 1.5em;
+  }
   
-    canvas {
-      background-color: rgb(255, 255, 255) !important; // Cambia el fondo del gráfico a negro
-    }
+  .chart-container {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 20px;
+  }
+  
+  .info-container {
+    text-align: center;
+  }
+  
+  .balance-text, .crypto-text {
+    color: #fff;
+    font-size: 1.2em;
+  }
+  
+  .buy-button, .sell-button {
+    margin-top: 10px;
+    --background: #8dc63f;
+    --color: #fff;
+    --border-radius: 5px;
+    --padding-start: 20px;
+    --padding-end: 20px;
   }
   

@@ -18,11 +18,7 @@ const routes: Routes = [
     loadChildren: () => import('./sobre/sobre.module').then( m => m.SobrePageModule),
     
   },
-  {
-    path: 'crypto',
-    loadChildren: () => import('./crypto/crypto.module').then((m) => m.CryptoPageModule),
 
-  },
   {
     path: 'quizz',
     loadChildren: () => import('./quizz/quizz.module').then( m => m.QuizzPageModule),
@@ -75,6 +71,10 @@ const routes: Routes = [
   {
     path: 'asistend',
     loadChildren: () => import('./asistend/asistend.module').then( m => m.AsistendPageModule)
+  },
+  {
+    path: 'crypto',
+    loadChildren: () => import('./crypto/crypto.module').then( m => m.CryptoPageModule)
   },
 
   

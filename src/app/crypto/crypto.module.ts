@@ -1,11 +1,15 @@
+// crypto.module.ts
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import { IonicModule } from '@ionic/angular';
 import { CryptoPageRoutingModule } from './crypto-routing.module';
 import { CryptoPage } from './crypto.page';
-import { NgChartsModule } from 'ng2-charts'; 
+
+
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   imports: [
@@ -13,8 +17,7 @@ import { NgChartsModule } from 'ng2-charts';
     FormsModule,
     IonicModule,
     CryptoPageRoutingModule,
-    NgChartsModule,
-   
+    NgChartsModule // Add ChartsModule here
   ],
   declarations: [CryptoPage]
 })
