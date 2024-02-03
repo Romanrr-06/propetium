@@ -7,10 +7,10 @@ import { AuthService } from '@auth0/auth0-angular';
   styleUrls: ['./community.page.scss'],
 })
 export class CommunityPage implements OnInit {
-  mensaje: string = '';
-  mensajes: string[] = [];
-  palabrasProhibidas: string[] = ['palabra1', 'palabra2', 'palabra3'];
-  user: any;
+  public mensaje: string = '';
+  public mensajes: string[] = [];
+  public palabrasProhibidas: string[] = ['palabra1', 'palabra2', 'palabra3'];
+  public user: any;
 
   constructor(public auth: AuthService) {}
 

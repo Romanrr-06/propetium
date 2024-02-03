@@ -1,37 +1,56 @@
-
-ion-title {
-    font-size: 1.5em;
-  }
+// .news-container {
+//     ion-item {
+//       display: flex;
+//       flex-direction: column;
+//       position: relative;
+//       border-radius: 10px;
+//       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//       margin: 10px;
   
-  .news-title {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #333; 
-  }
+//       .news-label {
+//         .news-title {
+//           color: #812381;
+//           font-size: 1.5em;
+//           font-weight: bold;
+//         }
   
-  .news-content {
-    color: #666; 
-  }
+//         .news-content {
+//           color: rgb(108, 172, 24);
+//           font-size: 1em;
+//         }
+//       }
   
-  ion-item {
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-  }
+//       .news-button {
+//         margin-top: 10px;
+//       }
   
-
-
-
-ion-item {
-    .news-title {
-      color: #ff00ff; 
-      font-size: 1.5em; 
-    }
+//       .news-image {
+//         max-width: 100%;
+//         border-radius: 10px 10px 0 0;
+//       }
   
-    .news-content {
-      color: whitesmoke; 
-      font-size: 1em;
-      
-    }
-  }
+//       .comments-list {
+//         position: absolute;
+//         top: 50%;
+//         right: 0;
+//         transform: translateY(-50%);
+//         width: 50%;
+//       }
+  
+//       .comment-item {
+//         background-color: #f0f0f0;
+//         border: 1px solid #ccc;
+//         margin-bottom: 5px;
+//         padding: 5px;
+//       }
+  
+//       .comment-button {
+//         margin-top: 10px;
+//       }
+//     }
+  
+//     .next-button {
+//       margin: 10px;
+//     }
+//   }
   
