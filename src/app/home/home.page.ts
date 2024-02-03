@@ -22,10 +22,10 @@ export class HomePage {
     { title: 'Abouth', icon:'people-sharp', route: '/sobre', },
     { title: 'Tienda',  icon:'bag-add-sharp', route: '/tienda',},
   ];
-
   constructor(private router: Router) {}
 
   navigateTo(route: string): void {
     this.router.navigate([route]);
   }
-}
+  }
+

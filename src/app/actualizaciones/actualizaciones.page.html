@@ -1,13 +1,26 @@
-<ion-header [translucent]="true">
+<!-- actualizaciones.page.html -->
+
+<ion-header>
   <ion-toolbar>
-    <ion-title>actualizaciones</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/noticias-actualizaciones"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Actualizaciones
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">actualizaciones</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let update of actualizaciones">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="update.imagen"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ update.titulo }}</h2>
+        <p>{{ update.contenido }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -1,0 +1,37 @@
+
+ion-title {
+    font-size: 1.5em;
+  }
+  
+  .news-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333; 
+  }
+  
+  .news-content {
+    color: #666; 
+  }
+  
+  ion-item {
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+  }
+  
+
+
+
+ion-item {
+    .news-title {
+      color: #ff00ff; 
+      font-size: 1.5em; 
+    }
+  
+    .news-content {
+      color: whitesmoke; 
+      font-size: 1em;
+      
+    }
+  }
+  

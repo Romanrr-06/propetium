@@ -1,13 +1,23 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>noticias</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="news-container">
+  <ion-list class="news-list">
+    <ion-item *ngIf="noticias.length > 0" lines="full" class="news-item">
+      <ion-thumbnail slot="start" *ngIf="noticias[currentIndex].mostrarImagen">
+        <img [src]="noticias[currentIndex].imagen" alt="Imagen de la noticia" class="news-image">
+      </ion-thumbnail>
+      <ion-label class="news-label">
+        <h2 class="news-title">{{ noticias[currentIndex].titulo }}</h2>
+        <p class="news-content" *ngIf="noticias[currentIndex].expanded">{{ noticias[currentIndex].contenido }}</p>
+      </ion-label>
+      <ion-button slot="end" fill="clear" (click)="toggleNewsContent(currentIndex)" class="news-button">
+        {{ noticias[currentIndex].expanded ? 'Cerrar' : 'Ver Más' }}
+      </ion-button>
+      <ion-button slot="end" fill="clear" (click)="toggleImage(currentIndex)" class="news-button">
+        {{ noticias[currentIndex].mostrarImagen ? 'Ocultar Imagen' : 'Ver Imagen' }}
+      </ion-button>
+    </ion-item>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">noticias</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-button *ngIf="noticias.length > 1" expand="full" (click)="showNextNews()" class="next-button">
+      Ver Más Noticias
+    </ion-button>
+  </ion-list>
 </ion-content>
