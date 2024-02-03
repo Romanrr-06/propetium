@@ -54,11 +54,10 @@ export class CryptoPage implements OnInit {
   ];
 
   public chartType: ChartType = 'line';
-
-  public balance: number = 1000;
-  public cryptoAmount: number = 0;
-  public currentCryptoPrice: number = 0; // Initialize with a default value
-  // private cdr: any;
+  public balance: number = 10000;
+  public cryptoAmount: number = 0; 
+  public currentCryptoPrice: number = 0;
+  // private cdr: any;{}
 
   constructor(private cdr: ChangeDetectorRef) {}
 

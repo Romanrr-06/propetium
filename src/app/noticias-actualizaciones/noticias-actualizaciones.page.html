@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-item>
       <ion-button routerLink="/home">back</ion-button>
@@ -10,7 +10,6 @@
 </ion-header>
 
 <ion-content>
-  <!-- Sección de Noticias -->
   <ion-card>
     <ion-card-header>
       Noticias
@@ -25,7 +24,6 @@
     </ion-card-content>
   </ion-card>
 
-  <!-- Sección de Actualizaciones -->
   <ion-card>
     <ion-card-header>
       Actualizaciones
@@ -39,4 +37,29 @@
       </ion-list>
     </ion-card-content>
   </ion-card>
+</ion-content> -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Noticias y Actualizaciones
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-row justify-content-center align-items-center>
+    <ion-col size="10" class="ion-text-center">
+      <ion-button expand="full" color="primary" routerLink="/noticias">
+        <ion-icon name="newspaper-outline" slot="start"></ion-icon>
+        Noticias
+      </ion-button>
+    </ion-col>
+    <ion-col size="10" class="ion-text-center">
+      <ion-button expand="full" color="secondary" routerLink="/actualizaciones">
+        <ion-icon name="sync-outline" slot="start"></ion-icon>
+        Actualizaciones
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

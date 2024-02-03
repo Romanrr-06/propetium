@@ -35,7 +35,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'tienda',
+    path: 'tienda/',
     loadChildren: () => import('./tienda/tienda.module').then( m => m.TiendaPageModule),
     canActivate: [AuthGuard]
   },
@@ -76,7 +76,15 @@ const routes: Routes = [
     path: 'crypto',
     loadChildren: () => import('./crypto/crypto.module').then( m => m.CryptoPageModule)
   },
-
+  {
+    path: 'noticias',
+    loadChildren: () => import('./noticias/noticias.module').then( m => m.NoticiasPageModule)
+  },
+  {
+    path: 'actualizaciones',
+    loadChildren: () => import('./actualizaciones/actualizaciones.module').then( m => m.ActualizacionesPageModule)
+  },
+  
   
 ];
 @NgModule({

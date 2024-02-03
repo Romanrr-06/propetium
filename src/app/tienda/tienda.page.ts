@@ -14,31 +14,34 @@ export class TiendaPage implements OnInit {
   public item: any;
   Items = [
     {
-      nombre: 'Casa',
+      id: 1,
+      nombre: 'Casa 1',
       descripcion: 'Descripción de la Casa 1',
-      imagenes: ['assets/houses index/house index 7.jpeg', 'assets/houses index/house-inde--7.jpeg', 'assets/houses index/houses-index-7.jpeg', 'assets/houses index/indexhouse 7.jpeg'],
+      imagenes: ['assets/houses index/house index 7.jpeg', '...'],
       imagenActual: 0,
       precio: '$100,000',
     },
     {
-      nombre: 'Casa',
+      id: 2,
+      nombre: 'Casa 2',
       descripcion: 'Descripción de la Casa 2',
-      imagenes: ['assets/houses index/house1.png', 'assets/houses index/house1-1-.png', 'assets/houses index/house1-.png', 'assets/houses index/house1--.png', 'assets/houses index/house1---.png'],
+      imagenes: ['assets/houses index/house1.png', '...'],
       imagenActual: 0,
       precio: '$150,000',
     },
     {
-      nombre: 'Casa',
+      id: 3,
+      nombre: 'Casa 3',
       descripcion: 'Descripción de la Casa 3',
-      imagenes: ['assets/houses index/house2l.png', 'assets/houses index/house2l-1.png', 'assets/houses index/house2.png', 'assets/houses index/house2-12.png', 'assets/houses index/house2-1.png', 'assets/houses index/house2-.png','assets/houses index/house2--2png.png','assets/houses index/house2--.png', 'assets/houses index/house2---png.png','assets/houses index/house2---1.png',],  
+      imagenes: ['assets/houses index/house2l.png', '...'],
       imagenActual: 0,
       precio: '$120,000',
     },
   ];
+  
   activatedRoute: any;
 
-
-  constructor(public route: ActivatedRoute) { }
+  constructor(public route: ActivatedRoute) {}
 
   cambiarImagenSiguiente(item: any) {
     if (item.imagenActual < item.imagenes.length - 1) {
@@ -55,11 +58,23 @@ export class TiendaPage implements OnInit {
       item.imagenActual = item.imagenes.length - 1;
     }
   }
-  
-  ngOnInit() {
-  this.route.params.subscribe(params =>{
-    this.item  = params;
 
-    console.log(`${this.item}`);
-  });
-  }}
+  ngOnInit() {
+    this.route.params.subscribe((params) => {
+      const nombre = params['nombre'];
+      console.log('Nombre Parameter:', nombre); // Log the received parameter
+
+      
+      this.item = this.Items.find((i) => i.id == nombre);
+
+      if (this.item) {
+        console.log('Selected Item:', JSON.stringify(this.item)); // Log the selected item
+      } else {
+        console.log('Item not found!');
+      }
+    });
+  }
+  
+  }
+  
+  

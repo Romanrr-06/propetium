@@ -41,7 +41,6 @@ export class CommunityPage implements OnInit {
       mensaje.toLowerCase().includes(palabra.toLowerCase())
     );
   }
-
   getCurrentTime(): string {
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
