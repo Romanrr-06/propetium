@@ -20,7 +20,7 @@ export class CommunityPage implements OnInit {
 
   ngOnInit() {
     this.auth.user$.subscribe((user) => {
-      console.log('User Data:', user); // Log user data to the console for debugging
+      console.log('User Data:', user); 
       this.user = user;
     });
   }
@@ -29,10 +29,9 @@ export class CommunityPage implements OnInit {
     if (this.mensaje.trim()) {
       if (this.contienePalabraProhibida(this.mensaje)) {
         console.log('Mensaje bloqueado: Contiene una palabra prohibida');
-        // Puedes agregar lógica para mostrar un mensaje de baneo o tomar acciones adicionales.
       } else {
         console.log('Mensaje publicado:', this.mensaje);
-        this.mensajes.unshift(this.mensaje); // Agrega mensajes en la parte superior
+        this.mensajes.unshift(this.mensaje); 
         this.mensaje = '';
       }
     } else {

@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 ;
 // import { FilterPipe } from './filtro.pipe';
 import { NgChartsModule } from 'ng2-charts';
+import { HttpClientModule } from '@angular/common/http'; // Asegúrate de importar HttpClientModule
+
 
 @NgModule({
   declarations: [AppComponent,],
@@ -21,7 +23,7 @@ import { NgChartsModule } from 'ng2-charts';
     NgChartsModule,
     FormsModule,
     BrowserModule,
-
+     HttpClientModule,
     // ServiceWorker.register('ngsw-worker.js', {}),
     AuthModule.forRoot({
       domain: 'dev-fxnxeoubwkjca2ea.eu.auth0.com',
