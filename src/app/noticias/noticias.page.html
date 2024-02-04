@@ -1,46 +1,55 @@
 <ion-content [fullscreen]="true">
   <ion-list>
-    <ion-item *ngIf="noticias.length > 0" lines="full">
-      <ion-thumbnail slot="start" *ngIf="noticias[currentIndex].mostrarImagen">
-        <img [src]="noticias[currentIndex].imagen" alt="Imagen de la noticia" class="news-image">
+    <ion-item *ngFor="let noticia of noticias; let i = index" lines="full" [style.display]="i === currentIndex ? 'block' : 'none'">
+      <ion-thumbnail slot="start" *ngIf="noticia.mostrarImagen">
+        <img [src]="noticia.imagen" alt="Imagen de la noticia" class="news-image">
       </ion-thumbnail>
+
       <ion-label>
-        <h2 class="news-title">{{ noticias[currentIndex].titulo }}</h2>
-        <p class="news-content" *ngIf="noticias[currentIndex].expanded">{{ noticias[currentIndex].contenido }}</p>
+        <h2 class="news-title">{{ noticia.titulo }}</h2>
+        <p class="news-content" *ngIf="noticia.expanded">{{ noticia.contenido }}</p>
       </ion-label>
-      <ion-button slot="end" fill="clear" (click)="toggleNewsContent(currentIndex)">
-        {{ noticias[currentIndex].expanded ? 'Cerrar' : 'Ver Más' }}
+
+      <ion-button slot="end" fill="clear" (click)="toggleNewsContent(i)">
+        {{ noticia.expanded ? 'Cerrar' : 'Ver Más' }}
       </ion-button>
-      <ion-button slot="end" fill="clear" (click)="toggleImage(currentIndex)">
-        {{ noticias[currentIndex].mostrarImagen ? 'Ocultar Imagen' : 'Ver Imagen' }}
+
+      <ion-button slot="end" fill="clear" (click)="toggleImage(i)">
+        {{ noticia.mostrarImagen ? 'Ocultar Imagen' : 'Ver Imagen' }}
       </ion-button>
     </ion-item>
+    
+    <!-- Button to show more news -->
     <ion-button *ngIf="noticias.length > 1" expand="full" (click)="showNextNews()">
       Ver Más Noticias
     </ion-button>
   </ion-list>
-</ion-content>
+  
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Título de la Noticia</ion-label>
+          <ion-input [(ngModel)]="nuevaNoticia.titulo" required></ion-input>
+        </ion-item>
 
-<ion-content>
+        <ion-item>
+          <ion-label position="floating">Contenido de la Noticia</ion-label>
+          <ion-textarea [(ngModel)]="nuevaNoticia.contenido" rows="5" required></ion-textarea>
+        </ion-item>
 
-  <ion-list *ngIf="true"> <!-- Always show the comment section -->
-    <ion-item *ngFor="let comentario of noticias[currentIndex].comentarios" lines="none">
-      <ion-label>
-        <h3>{{ comentario.usuario }}</h3>
-        <p>{{ comentario.contenido }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+        <ion-item>
+          <ion-label position="floating">URL de la Imagen</ion-label>
+          <ion-input [(ngModel)]="nuevaNoticia.imagen" type="url"></ion-input>
+          <ion-text *ngIf="nuevaNoticia.imagen && !esURLValida(nuevaNoticia.imagen)" color="danger">
+            Ingresa una URL de imagen válida.
+          </ion-text>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 
-
-  <!-- Formulario para agregar comentarios -->
-  <ion-item lines="full">
-    <ion-label>
-      <h3>Agregar Comentario</h3>
-    </ion-label>
-    <ion-textarea [(ngModel)]="nuevoComentario" placeholder="Escribe un comentario"></ion-textarea>
-    <ion-button slot="end" (click)="agregarComentario(currentIndex, 'Anonimus', nuevoComentario)">
-      Enviar
-    </ion-button>
-  </ion-item>
+  <ion-button expand="full" class="ion-margin-top" (click)="agregarNoticia()">
+    Crear Noticia
+  </ion-button>
 </ion-content>

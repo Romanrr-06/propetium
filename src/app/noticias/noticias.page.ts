@@ -1,11 +1,5 @@
 import { Component } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import { AlertController } from '@ionic/angular';
-interface Comentario {
-  usuario: string;
-  contenido: string;
-  
-}
 
 interface Noticia {
   titulo: string;
@@ -14,7 +8,8 @@ interface Noticia {
   expanded: boolean;
   mostrarImagen: boolean;
   usuario: string;
-  comentarios: Comentario[];
+  comentarios: [];
+  mostrarComentarios: boolean;
 }
 
 @Component({
@@ -23,7 +18,7 @@ interface Noticia {
   styleUrls: ['./noticias.page.scss'],
 })
 export class NoticiasPage {
-
+  user: any;
   noticias: Noticia[] = [
     {
       titulo: "Propetium-Coin Revoluciona el Mundo de las Criptomonedas con Innovador Enfoque Ecológico",
@@ -32,7 +27,8 @@ export class NoticiasPage {
       expanded: false,
       mostrarImagen: false,
       usuario: 'Nombre de Usuario',
-      comentarios: []
+      comentarios: [],
+      mostrarComentarios: true
     },
     {
       titulo: "EtherVortex Anuncia Contrato Inteligente Revolucionario para Transacciones Instantáneas",
@@ -41,7 +37,8 @@ export class NoticiasPage {
       expanded: false,
       mostrarImagen: false,
       usuario: 'Nombre de Usuario',
-      comentarios: []
+      comentarios: [],
+      mostrarComentarios: true
     },
     {
       titulo: "SolarCoin Impulsa la Adopción de Energía Solar con Recompensas para Productores de Energía Verde",
@@ -50,69 +47,66 @@ export class NoticiasPage {
       expanded: false,
       mostrarImagen: false,
       usuario: 'Nombre de Usuario',
-      comentarios: []
+      comentarios: [],
+      mostrarComentarios: true
     },
   ];
-  currentIndex = 0;
-  nuevoComentario: string = '';
+ currentIndex = 0;
 
-
-  toggleNewsContent(index: number) {
-    this.noticias.forEach((noticia, i) => {
-      noticia.expanded = i === index && !noticia.expanded;
-    });
-  }
-
-  toggleImage(index: number) {
-    this.noticias[index].mostrarImagen = !this.noticias[index].mostrarImagen;
-  }
-
-  showNextNews() {
-    this.currentIndex = (this.currentIndex + 1) % this.noticias.length;
-  }
-
-  constructor(public auth: AuthService, private alertController: AlertController) {}
-
-
-
-  verificarPalabrasProhibidas(contenido: string) {
-    const palabrasProhibidas = ['palabra1', 'palabra2', 'palabra3'];
-
-    const contenidoMinusc = contenido.toLowerCase();
-
-    const palabraProhibida = palabrasProhibidas.find(palabra => contenidoMinusc.includes(palabra));
-
-    if (palabraProhibida) {
-      this.mostrarAdvertencia(palabraProhibida);
-    }
-  }
-
-  async mostrarAdvertencia(palabraProhibida: string) {
-    const alert = await this.alertController.create({
-      header: 'Advertencia',
-      message: `Se ha detectado la palabra prohibida: ${palabraProhibida}.`,
-      buttons: ['OK']
-    });
-
-    await alert.present();
-  }
-
-  agregarComentario(index: number, usuario: string, contenido: string) {
-    this.verificarPalabrasProhibidas(contenido); // Llama a la función para verificar palabras prohibidas antes de agregar el comentario
-    this.noticias[index].comentarios.push({ usuario, contenido });
-  }
-
-
-  // user foto 
-  // user: any;
-  // constructor(public auth: AuthService) {}
-
-  // ngOnInit() {
-  //   this.auth.user$.subscribe((user) => {
-  //     console.log('User Data:', user); // Log user data to the console for debugging
-  //     this.user = user;
-      
-  //   });
-  // }
-  
+ toggleImage(index: number) {
+  this.noticias[index].mostrarImagen = !this.noticias[index].mostrarImagen;
 }
+
+toggleNewsContent(index: number) {
+  this.noticias[index].expanded = !this.noticias[index].expanded;
+}
+
+showNextNews() {
+  this.currentIndex = (this.currentIndex + 1) % this.noticias.length;
+}
+
+
+
+//  crear su noticia 
+
+
+
+nuevaNoticia: Noticia = {
+  titulo: '',
+  contenido: '',
+  imagen: '',
+  expanded: false,
+  mostrarImagen: false,
+  usuario: 'Nombre de Usuario',
+  comentarios: [],
+  mostrarComentarios: true,
+};
+agregarNoticia() {
+  if (this.nuevaNoticia.titulo && this.nuevaNoticia.contenido) {
+    if (!this.nuevaNoticia.imagen || this.esURLValida(this.nuevaNoticia.imagen)) {
+      this.noticias.push(this.nuevaNoticia);
+      this.nuevaNoticia = {
+        titulo: '',
+        contenido: '',
+        imagen: '',
+        expanded: false,
+        mostrarImagen: false,
+        usuario: 'Nombre de Usuario',
+        comentarios: [],
+        mostrarComentarios: true,
+      };
+    } else {
+      console.error('Por favor, ingresa una URL de imagen válida.');
+    }
+  } else {
+    console.error('Por favor, completa todos los campos obligatorios.');
+  }
+}
+
+esURLValida(url: string): boolean {
+  const urlRegex = /(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+  return urlRegex.test(url);
+}
+
+
+  }
