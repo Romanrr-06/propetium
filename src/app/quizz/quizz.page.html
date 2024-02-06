@@ -1,15 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>quizz</ion-title>
-    <ion-item>
-      <ion-button routerLink="/home">back</ion-button>
-    </ion-item>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">quizz</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Tu contenido actual aquí -->
+
+  <!-- Mostrar las preguntas -->
+
+    <ion-list>
+      <ion-item *ngFor="let pregunta of preguntas">
+        {{ pregunta.id }}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  

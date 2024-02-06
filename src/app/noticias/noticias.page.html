@@ -42,8 +42,9 @@
           <ion-label position="floating">URL de la Imagen</ion-label>
           <ion-input [(ngModel)]="nuevaNoticia.imagen" type="url"></ion-input>
           <ion-text *ngIf="nuevaNoticia.imagen && !esURLValida(nuevaNoticia.imagen)" color="danger">
-            Ingresa una URL de imagen válida.
+            {{ esURLValida(nuevaNoticia.imagen) ? '' : 'Ingresa una URL de imagen válida.' }}
           </ion-text>
+          
         </ion-item>
       </ion-list>
     </ion-card-content>
