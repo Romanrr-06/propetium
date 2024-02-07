@@ -4,13 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RuletaPageRoutingModule } from './ruleta-routing.module';
 import { RuletaPage } from './ruleta.page';
-
+// import { HttpBackend } from '@angular/common/http'; 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RuletaPageRoutingModule
+    RuletaPageRoutingModule,
+    // HttpBackend
   ],
   declarations: [RuletaPage]
 })

@@ -1,6 +1,8 @@
 // ruleta.page.ts
 
 import { Component, OnInit } from '@angular/core';
+import { HttpBackend } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ruleta',
@@ -10,8 +12,9 @@ import { Component, OnInit } from '@angular/core';
 export class RuletaPage implements OnInit {
   
 
-  constructor() {}
 
-  ngOnInit() {}
-  }
+  ngOnInit() {
+        
+    
 
+  }}
