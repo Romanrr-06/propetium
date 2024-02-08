@@ -1,4 +1,4 @@
-  import { NgModule } from '@angular/core';
+  import { NgModule, isDevMode } from '@angular/core';
   import { BrowserModule } from '@angular/platform-browser';
   import { IonicModule } from '@ionic/angular';
   import { AppComponent } from './app.component';
@@ -10,7 +10,8 @@
   ;
   // import { FilterPipe } from './filtro.pipe';
   import { NgChartsModule } from 'ng2-charts';
-  import { HttpClientModule } from '@angular/common/http'; // Asegúrate de importar HttpClientModule
+  import { HttpClientModule } from '@angular/common/http';
+import { ServiceWorkerModule } from '@angular/service-worker'; // Asegúrate de importar HttpClientModule
 
   // import { ToastController } from '@ionic/angular';
 
@@ -29,6 +30,12 @@
         authorizationParams: {
           redirect_uri: window.location.origin
         }
+      }),
+      ServiceWorkerModule.register('ngsw-worker.js', {
+        enabled: !isDevMode(),
+        // Register the ServiceWorker as soon as the application is stable
+        // or after 30 seconds (whichever comes first).
+        registrationStrategy: 'registerWhenStable:30000'
       }),
     ],
     providers: [
