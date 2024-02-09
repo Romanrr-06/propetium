@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ruleta.page.scss'],
 })
 export class RuletaPage implements OnInit {
+
+
   
-
-
   ngOnInit() {
         
     

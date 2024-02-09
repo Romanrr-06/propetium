@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CryptoGameService } from '../services/crypto-game.service';
 
 @Component({
   selector: 'app-crypto-game',
@@ -6,46 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./crypto-game.page.scss'],
 })
 export class CryptoGamePage {
- public currentPrice: number;
   public userGuess: 'up' | 'down' | undefined;
   public result: string | undefined;
-  public points = 0;
-  public pointsInBank = 0;
-  public minPointsToTransfer = 120; 
+  points!: number;
 
-  constructor() {
-    this.currentPrice = this.getRandomPrice();
-  }
+  constructor(private cryptoGameService: CryptoGameService) {}
 
-  getRandomPrice(): number {
-    return Math.floor(Math.random() * (10000 - 5000) + 5000);
+  getCurrentPrice(): number {
+    return this.cryptoGameService.getCurrentPrice();
   }
 
   makeGuess() {
     if (this.userGuess !== undefined) {
-      const newPrice = this.getRandomPrice();
-      const isCorrect = (this.userGuess === 'up' && newPrice > this.currentPrice) ||
-                        (this.userGuess === 'down' && newPrice < this.currentPrice);
-
-      if (isCorrect) {
-        this.points += 10;
-        this.result = `¡Correcto! Ganaste 10 puntos.`;
-
-        
-        if (this.points >= this.minPointsToTransfer) {
-          this.transferPointsToBank();
-        }
-      } else {
-        this.result = `Incorrecto. No ganaste puntos.`;
-      }
-
-      this.currentPrice = newPrice;
+      this.result = this.cryptoGameService.makeGuess(this.userGuess);
     }
   }
-
-  transferPointsToBank() {
-    this.pointsInBank += this.points;
-    this.points = 0;
-    console.log(`Se transfirieron ${this.pointsInBank} puntos al banco.`);
+  getPoints(): number {
+    return this.points;
   }
 }
