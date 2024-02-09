@@ -8,7 +8,6 @@
 </ion-header>
 
 <ion-content>
-  <!-- Display selected item -->
   <ion-card *ngIf="item">
     <div class="image-container">
       <ion-button (click)="cambiarImagenAnterior(item)" class="arrow-button" size="small">Anterior</ion-button>
@@ -21,7 +20,6 @@
       <p>Precio: {{ item.precio }}</p>
     </ion-card-header>
     <ion-card-content>
-      <!-- Add any additional content you want to display for the selected item -->
     </ion-card-content>
   </ion-card>
 </ion-content>
