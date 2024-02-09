@@ -1,8 +1,9 @@
+// app.component.ts
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { IonSearchbar, ToastController } from '@ionic/angular';
-// import { SpeechRecognition } from 'cordova-plugin-speechrecognition/ngx';
+import { SearchService } from './search.service';
 
 @Component({
   selector: 'app-root',
@@ -16,16 +17,22 @@ export class AppComponent {
     { title: 'Home', url: '/home', icon: 'home', login_hide: true },
     { title: 'crypto', url: '/crypto', icon: 'logo-bitcoin', login_hide: true },
     { title: 'game', url: '/crypto-game', icon: 'logo-game-controller-b', login_hide: true },
+    { title: 'ruleta', url: '/ruleta', icon: '', login_hide: true },
+    { title: 'actualizaciones', url: '/actualizaciones', icon: '', login_hide: true },
+    { title: 'catalogo', url: '/catalogo', icon: '', login_hide: true },
+    { title: 'noticias', url: '/noticias', icon: '', login_hide: true },
   ];
 
-  filteredItems: any[] = []; // Define la propiedad filteredItems
+  @ViewChild('searchBar', { static: true }) searchBar?: IonSearchbar;
 
-  @ViewChild('searchBar', { static: false }) searchBar?: IonSearchbar;
+  searchHistory: string[] = [];
+  relatedOptions: string[] = [];
 
   constructor(
     public auth: AuthService,
     private router: Router,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private searchService: SearchService
   ) {}
 
   handleSearch(event: any) {
@@ -36,21 +43,17 @@ export class AppComponent {
       return;
     }
 
-    // Solo realiza la búsqueda cuando se presiona Enter (código de tecla 13)
-    if (event.key === 'Enter') {
-      const foundPages = this.appPages.filter(page =>
-        page.title.toLowerCase().includes(searchTerm)
-      );
+    // Obtener opciones relacionadas del servicio
+    this.relatedOptions = this.searchService.getRelatedOptions(searchTerm);
 
-      if (foundPages.length > 0) {
-        if (foundPages.length === 1) {
-          this.navigateToPage(foundPages[0]);
-        } else {
-          this.presentSuggestions(foundPages);
-        }
-      } else {
-        this.presentToast('No se encontraron coincidencias');
-      }
+    // Buscar la página relacionada
+    const foundPage = this.appPages.find(page => page.title.toLowerCase() === searchTerm);
+
+    if (foundPage) {
+      this.navigateToPage(foundPage);
+      this.addToSearchHistory(searchTerm);
+    } else {
+      this.presentToast('No se encontraron coincidencias');
     }
   }
 
@@ -59,10 +62,34 @@ export class AppComponent {
     this.clearSearch();
   }
 
-  presentSuggestions(suggestions: any[]) {
-    const suggestionTitles = suggestions.map(page => page.title).join(', ');
+  addToSearchHistory(term: string) {
+    if (!this.searchHistory.includes(term)) {
+      this.searchHistory.push(term);
+    }
+  }
 
-    this.presentToast(`Se encontraron varias coincidencias: ${suggestionTitles}`);
+  clearSearch() {
+    // Limpiar el cuadro de búsqueda y restablecer el enfoque
+    this.searchBar?.value && (this.searchBar.value = ''); 
+    this.searchBar?.setFocus(); 
+    // Limpiar las opciones relacionadas
+    this.relatedOptions = [];
+  }
+
+  clearHistory() {
+    this.searchHistory = [];
+  }
+
+  handleRelatedOptionClick(option: string) {
+    // Manejar el clic en una opción relacionada
+    const foundPage = this.appPages.find(page => page.title.toLowerCase() === option.toLowerCase());
+
+    if (foundPage) {
+      this.navigateToPage(foundPage);
+      this.addToSearchHistory(option);
+    } else {
+      this.presentToast('No se encontró la página correspondiente a la opción seleccionada.');
+    }
   }
 
   async presentToast(message: string) {
@@ -72,10 +99,5 @@ export class AppComponent {
       position: 'bottom',
     });
     toast.present();
-  }
-
-  clearSearch() {
-    this.searchBar?.value && (this.searchBar.value = ''); // Limpiar la barra de búsqueda si tiene un valor
-    this.searchBar?.setFocus(); // Desenfocar la barra de búsqueda
   }
 }

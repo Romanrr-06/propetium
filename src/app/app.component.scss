@@ -5,7 +5,7 @@ body, ion-menu, ion-content, ion-list, ion-note, ion-item, ion-searchbar, ion-li
 }
 
 body {
-  background-color: #f0f0f0;
+  background-color: #000000;
   font-family: 'Arial', sans-serif;
   font-size: 20px;
   line-height: 1.6;
@@ -15,10 +15,16 @@ body {
 ion-item {
   padding: 18px;
   margin: 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #d3bfa1;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fffaf0;
+  color: #655147; /* Marrón oscuro para el texto */
 }
+
+
+/* app.component.scss */
+
 
 /* Mejora del Relleno y Fuente del Contenido */
 ion-content, ion-menu.md ion-content, ion-menu.ios ion-content {
@@ -28,44 +34,43 @@ ion-content, ion-menu.md ion-content, ion-menu.ios ion-content {
 
 /* Estilos para el Elemento Seleccionado */
 ion-item.selected {
-  background: rgba(26, 35, 126, 0.1);
-  color: #1a237e;
-  box-shadow: 0 6px 12px rgba(26, 35, 126, 0.2);
+  background: rgba(137, 100, 67, 0.1);
+  color: #895100;
+  box-shadow: 0 6px 12px rgba(137, 100, 67, 0.2);
 }
 
 /* Mejoras en la Barra de Búsqueda */
 ion-searchbar {
-  background: #ffffff;
-  border: 1px solid #ddd;
+  background: transparent; /* Hacer el fondo de la barra de búsqueda transparente */
+  border: 1px solid #d3bfa1;
   border-radius: 12px;
-  color: #444;
+  color: #655147;
 }
 
 ion-searchbar::placeholder {
-  color: #888;
+  color: #947c66;
 }
 
 ion-searchbar .searchbar-search-icon {
-  color: #e57373;
-  font-size: 36px;
+  color: #895100;
 }
 
 /* Estilos Ajustados para Cabeceras de Lista */
 ion-list#inbox-list ion-list-header, ion-list#labels-list ion-list-header {
   font-size: 26px;
   font-weight: 700;
-  color: #444;
+  color: #655147;
 }
 
 /* Estilos para ion-icon */
 ion-item ion-icon {
   font-size: 32px;
-  color: #777;
+  color: #795548;
 }
 
 /* Estilos Personalizados para el Icono del Elemento Seleccionado */
 ion-item.selected ion-icon {
-  color: #e57373;
+  color: #d2691e;
 }
 
 /* Transiciones Suaves para Mejores Animaciones */
@@ -77,12 +82,12 @@ ion-menu {
 /* Estilo Consistente para Notas en Toda la Aplicación */
 ion-note {
   font-size: 22px;
-  color: #777;
+  color: #795548;
 }
 
 /* Mejora del Estilo de los Botones */
 ion-button {
-  background-color: #1a237e;
+  background-color: #895100;
   color: #fff;
   border-radius: 14px;
   padding: 16px 32px;
