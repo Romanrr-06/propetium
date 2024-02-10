@@ -1,109 +1,226 @@
-/* Estilos Globales */
+/* Global Styles */
 body, ion-menu, ion-content, ion-list, ion-note, ion-item, ion-searchbar, ion-list-header {
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: #000000;
-  font-family: 'Arial', sans-serif;
-  font-size: 20px;
-  line-height: 1.6;
+  background-color: #121212;
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  line-height: 1.8;
+  color: #ffffff;
+  animation: fadeIn 0.8s ease-in-out; /* New fade-in animation for the entire page */
 }
 
-/* Estilos Elegantes para ion-item */
+/* Elegant Styles for ion-item */
 ion-item {
-  padding: 18px;
+  padding: 24px;
   margin: 0;
-  border-bottom: 1px solid #d3bfa1;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #fffaf0;
-  color: #655147; /* Marrón oscuro para el texto */
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  background-color: #1f1f1f;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease-in-out; /* New fade-in-up animation for each item */
 }
 
+ion-item:hover {
+  background-color: #333333;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
+}
 
-/* app.component.scss */
-
-
-/* Mejora del Relleno y Fuente del Contenido */
+/* Improved Padding and Font for Content */
 ion-content, ion-menu.md ion-content, ion-menu.ios ion-content {
-  padding: 40px;
+  padding: 48px;
   margin: 0;
 }
 
-/* Estilos para el Elemento Seleccionado */
+/* Styles for Selected Item */
 ion-item.selected {
-  background: rgba(137, 100, 67, 0.1);
-  color: #895100;
-  box-shadow: 0 6px 12px rgba(137, 100, 67, 0.2);
+  background: rgba(173, 124, 91, 0.5);
+  color: #ffd700;
+  box-shadow: 0 14px 28px rgba(173, 124, 91, 0.7);
+  animation: pulse 0.8s infinite; /* New pulse animation for the selected item */
 }
 
-/* Mejoras en la Barra de Búsqueda */
+/* Enhanced Searchbar Styles */
 ion-searchbar {
-  background: transparent; /* Hacer el fondo de la barra de búsqueda transparente */
-  border: 1px solid #d3bfa1;
-  border-radius: 12px;
-  color: #655147;
+  background: transparent;
+  border: 2px solid #3a3a3a;
+  border-radius: 20px;
+  color: #ffffff;
+  transition: border-color 0.3s ease;
+  animation: bounceIn 1s ease-in-out; /* New bounce-in animation for the search bar */
 }
 
 ion-searchbar::placeholder {
-  color: #947c66;
+  color: #b3b3b3;
 }
 
 ion-searchbar .searchbar-search-icon {
-  color: #895100;
+  color: #ffd700;
 }
 
-/* Estilos Ajustados para Cabeceras de Lista */
+ion-searchbar:focus-within {
+  border-color: #ffd700;
+}
+
+/* Adjusted Styles for List Headers */
 ion-list#inbox-list ion-list-header, ion-list#labels-list ion-list-header {
-  font-size: 26px;
-  font-weight: 700;
-  color: #655147;
-}
-
-/* Estilos para ion-icon */
-ion-item ion-icon {
   font-size: 32px;
-  color: #795548;
+  font-weight: 700;
+  color: #ffffff;
 }
 
-/* Estilos Personalizados para el Icono del Elemento Seleccionado */
+/* Styles for ion-icon */
+ion-item ion-icon {
+  font-size: 40px;
+  color: #ffd700;
+  animation: rotateIn 0.8s ease-in-out; /* New rotate-in animation for each icon */
+}
+
+/* Custom Styles for Selected Item's Icon */
 ion-item.selected ion-icon {
-  color: #d2691e;
+  color: #e63946;
 }
 
-/* Transiciones Suaves para Mejores Animaciones */
+/* Smooth Transitions for Better Animations */
 ion-menu {
   -webkit-transition: transform 0.5s ease-out;
   transition: transform 0.5s ease-out;
 }
 
-/* Estilo Consistente para Notas en Toda la Aplicación */
+/* Consistent Style for Notes Throughout the App */
 ion-note {
-  font-size: 22px;
-  color: #795548;
+  font-size: 28px;
+  color: #ffd700;
+  animation: fadeInLeft 1s ease-in-out; /* New fade-in-left animation for notes */
 }
 
-/* Mejora del Estilo de los Botones */
+/* Enhanced Button Style */
 ion-button {
-  background-color: #895100;
+  background-color: #e63946;
   color: #fff;
-  border-radius: 14px;
-  padding: 16px 32px;
+  border-radius: 24px;
+  padding: 24px 48px;
   font-weight: bold;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  animation: bounce 1s infinite; /* New bounce animation for the button */
 }
 
-/* Ajustes de Tipografía */
+ion-button:hover {
+  background-color: #c72c41;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.8);
+}
+
+/* Typography Adjustments */
 body {
-  font-size: 20px;
-  line-height: 1.6;
+  font-size: 24px;
+  line-height: 1.8;
 }
 
-/* Tipografía Responsiva */
+/* Responsive Typography */
 @media screen and (max-width: 768px) {
   body {
-    font-size: 18px;
+    font-size: 22px;
+  }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Additional Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes bounceIn {
+  from, 20%, 40%, 60%, 80%, to {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    transform: scale3d(1, 1, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    transform-origin: center;
+    transform: rotate(-180deg);
+  }
+  to {
+    transform-origin: center;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-20px);
+  }
+
+  60% {
+    transform: translateY(-10px);
   }
 }

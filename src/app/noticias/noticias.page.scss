@@ -6,13 +6,13 @@ ion-content {
   }
 }
 .tutorial-container {
-  background-color: #ea0000; /* Fondo suave rojo */
-  padding: 20px;
-  border-radius: 15px;
+  background-color: #ff3355; /* Fondo suave rojo lujoso */
+  padding: 30px;
+  border-radius: 20px;
   margin: 50px auto;
-  max-width: 800px;
-  animation: fadeInUp 0.5s ease-in-out;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  animation: fadeInUp 0.8s ease-in-out;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   z-index: 9999; /* Asegura que esté en la capa superior */
   position: relative; /* Permite el posicionamiento relativo */
   color: #fff; /* Texto blanco para mayor contraste */
@@ -22,62 +22,144 @@ ion-content {
   align-items: center;
   justify-content: center;
 
-  /* Añade bordes y sombras para resaltar */
-  border: 2px solid #fff;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  /* Añade bordes y sombras para un aspecto lujoso */
+  border: 3px solid #fff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 
   /* Añade un gradiente de fondo para un efecto más elegante */
-  background: linear-gradient(45deg, #ea0000, #ff4500);
+  background: linear-gradient(45deg, #ff3355, #ffcc33);
 }
 
 /* Añade estilos para el contenido del tutorial */
+.tutorial-container {
+  background-color: #ff3355; /* Fondo suave rojo lujoso */
+  padding: 40px;
+  border-radius: 25px;
+  margin: 50px auto;
+  max-width: 1000px;
+  animation: fadeInUp 1s ease-in-out;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+  z-index: 9999; /* Asegura que esté en la capa superior */
+  position: relative; /* Permite el posicionamiento relativo */
+  color: #fff; /* Texto blanco para mayor contraste */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Añade bordes y sombras más pronunciados para un aspecto lujoso */
+  border: 4px solid #fff;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+
+  /* Añade un gradiente de fondo más suave y elegante */
+  background: linear-gradient(45deg, #ff3355, #ff9966);
+}
+
+/* Añade estilos para el contenido del tutorial */
+.tutorial-container {
+  background-color: #ff3355; /* Fondo suave rojo lujoso */
+  padding: 40px;
+  border-radius: 25px;
+  margin: 50px auto;
+  max-width: 1000px;
+  animation: fadeInUp 1.2s ease-in-out;
+  box-shadow: 0 0 45px rgba(0, 0, 0, 0.4);
+  z-index: 9999; /* Asegura que esté en la capa superior */
+  position: relative; /* Permite el posicionamiento relativo */
+  color: #fff; /* Texto blanco para mayor contraste */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Añade bordes y sombras más pronunciados para un aspecto lujoso */
+  border: 5px solid #fff;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+
+  /* Añade un gradiente de fondo más suave y elegante */
+  background: linear-gradient(45deg, #ff3355, #ff9966);
+}
+
+
+
+
+
+/* Añade estilos para el contenido del tutorial */
 .tutorial-container h2 {
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-family: 'Playfair Display', serif;
+  color: #4a90e2; /* Azul intenso */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave para resaltar */
 }
 
 .tutorial-container p {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  line-height: 2.2;
+  color: #333; /* Color de texto más oscuro para contraste */
 }
 
 .tutorial-container button {
-  background-color: #fff; /* Botón blanco para contraste */
-  color: #ea0000; /* Texto rojo para contraste */
-  border: 2px solid #ea0000;
-  border-radius: 10px;
-  padding: 10px 20px;
-  font-size: 1rem;
+  background-color: #4a90e2; /* Azul intenso */
+  color: #fff;
+  border: 4px solid #4a90e2; /* Borde grueso */
+  border-radius: 25px;
+  padding: 20px 40px;
+  font-size: 1.8rem;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.6s, color 0.6s;
 }
 
 .tutorial-container button:hover {
-  background-color: #ea0000;
-  color: #fff;
+  background-color: #fff;
+  color: #4a90e2;
 }
 
-/* Añade una línea divisoria para separar el contenido */
 .tutorial-container::after {
   content: '';
   width: 100%;
-  height: 2px;
-  background-color: #fff;
-  margin: 20px 0;
+  height: 5px;
+  background-color: #ffd700; /* Color dorado */
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.8); /* Sombra dorada */
+  margin: 50px 0;
 }
 
-/* Añade un ícono o elemento decorativo */
 .tutorial-container::before {
-  content: '🌟'; /* Cambia esto por el ícono o contenido que desees */
-  font-size: 2rem;
-  margin-bottom: 20px;
+  content: '📰💼💎'; /* Iconos de periódico, maletín y diamante */
+  font-size: 4rem;
+  margin-bottom: 50px;
+  animation: bounce 2s infinite ease-in-out; /* Añade un efecto de rebote */
+  color: #ffd700; /* Color dorado */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tutorial-container {
+  background: linear-gradient(45deg, #4a90e2, #87cefa),
+              repeating-linear-gradient(45deg, #fff, #fff 10px, #ffd700 10px, #ffd700 20px);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(50px);
   }
   to {
     opacity: 1;
@@ -86,9 +168,9 @@ ion-content {
 }
 
 .tutorial-step {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   opacity: 0;
-  animation: fadeIn 0.5s ease-in-out forwards;
+  animation: fadeIn 1s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
@@ -99,8 +181,6 @@ ion-content {
     opacity: 1;
   }
 }
-
-/* ... Código anterior ... */
 
 /* Estilos para la lista de noticias */
 .news-container ion-list {
@@ -128,15 +208,59 @@ ion-content {
     font-weight: bold;
     color: #4d4dff; /* Tono lujoso azul */
     margin-bottom: 10px;
+    text-transform: uppercase; /* Convierte el texto a mayúsculas para un aspecto más elegante */
+    letter-spacing: 1px; /* Añade un pequeño espaciado entre letras */
+    transition: color 0.3s ease-in-out; /* Transición suave para el cambio de color */
+  
+    /* Efecto de color al pasar el ratón sobre el título */
+    &:hover {
+      color: #ff6666; /* Cambia el color al pasar el ratón */
+    }
+  
+    /* Animación de entrada para el título */
+    animation: fadeInUp 0.5s ease-in-out;
+  
+    /* Estilos para la animación de entrada */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   }
+  
 
   /* Añade estilos al contenido de la noticia */
   .news-content {
     font-size: 1.2rem;
     color: #666;
     margin-top: 10px;
+    line-height: 1.6; /* Espaciado entre líneas para una mejor legibilidad */
+    transition: color 0.3s ease-in-out; /* Transición suave para el cambio de color */
+  
+    /* Efecto de color al pasar el ratón sobre el contenido */
+    &:hover {
+      color: #ff6666; /* Cambia el color al pasar el ratón */
+    }
+  
+    /* Animación de entrada para el contenido */
+    animation: fadeIn 0.5s ease-in-out;
+  
+    /* Estilos para la animación de entrada */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
   }
-
+  
   /* Añade estilos a la imagen de la noticia */
   .news-image {
     max-width: 100px;

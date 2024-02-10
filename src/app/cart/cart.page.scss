@@ -1,24 +1,89 @@
 /* cart.page.scss */
 
 ion-content {
-    --ion-background-color: #c18686; /* Color de fondo, ajusta según tu preferencia */
+  --ion-background-color: #c18686; /* Color de fondo, ajusta según tu preferencia */
+  background-color: #c18686; /* Cambia el color de fondo si no deseas una imagen */
+  padding: 30px; /* Relleno adicional para mayor exclusividad */
+  color: #fff; /* Color del texto para mayor contraste con el fondo */
+  font-family: 'Montserrat', sans-serif; /* Cambia la fuente del texto según tus preferencias */
+  animation: fadeIn 1s ease-in-out; /* Agrega una animación de entrada suave */
+}
+
+ion-list {
+  margin: 30px; /* Margen aumentado para dar más espacio entre los elementos */
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente para resaltar sobre el fondo principal */
+  border-radius: 20px; /* Bordes redondeados para un aspecto más moderno */
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4); /* Sombra sutil para dar profundidad */
+  animation: slideIn 1s ease-in-out; /* Agrega una animación de deslizamiento suave */
+}
+
+ion-item {
+  border: 3px solid #705b5b; /* Grosor del borde incrementado para un aspecto más robusto */
+  margin-bottom: 20px; /* Espaciado entre elementos aumentado */
+  padding: 20px; /* Relleno interno incrementado para mayor comodidad visual */
+  background-color: rgba(255, 255, 255, 0.95); /* Fondo ligeramente más claro para destacar sobre la lista */
+  border-radius: 15px; /* Bordes redondeados para una apariencia más suave */
+  animation: fadeIn 0.5s ease-in-out, scaleIn 0.8s ease-in-out; /* Agrega una animación de entrada suave y de escala */
+}
+
+/* Estilo para el presupuesto */
+p.presupuesto {
+  font-size: 20px; /* Tamaño de fuente aumentado para destacar */
+  color: #42d780; /* Color del texto mantenido para resaltar la información importante */
+  margin-top: 15px; /* Espaciado superior ajustado para mejorar la disposición */
+  text-align: right; /* Alineación a la derecha mantenida para una presentación ordenada */
+  animation: fadeIn 1s ease-in-out; /* Agrega una animación de entrada suave */
+}
+
+/* Estilo para el título de la página */
+ion-title {
+  font-size: 2.5rem; /* Tamaño del título de la página */
+  font-weight: bold; /* Texto en negrita para mayor énfasis */
+  text-align: center; /* Alineación centrada para un aspecto más limpio */
+  margin-bottom: 20px; /* Espaciado inferior para separar el título del contenido */
+  animation: fadeIn 1s ease-in-out; /* Agrega una animación de entrada suave */
+}
+
+/* Estilo para los botones de acción */
+ion-button {
+  --color: #fff; /* Color del texto en los botones */
+  --background: #42d780; /* Color de fondo de los botones */
+  --border-radius: 15px; /* Bordes redondeados para los botones */
+  --padding-start: 20px; /* Relleno a la izquierda de los botones */
+  --padding-end: 20px; /* Relleno a la derecha de los botones */
+  margin-top: 15px; /* Espaciado superior para separar los botones del contenido */
+  animation: fadeIn 1s ease-in-out; /* Agrega una animación de entrada suave */
+}
+
+/* Agrega más estilos y mejoras según sea necesario */
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
   }
-  
-  ion-list {
-    margin: 10px; /* Ajusta el margen según tu preferencia */
+  to {
+      opacity: 1;
+      transform: translateY(0);
   }
-  
-  ion-item {
-    border: 1px solid #705b5b; /* Borde para separar los elementos, ajusta según tu preferencia */
-    margin-bottom: 10px; /* Espaciado entre elementos, ajusta según tu preferencia */
-    padding: 10px; /* Relleno interno, ajusta según tu preferencia */
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateX(-20px);
   }
-  
-  /* Estilo para el presupuesto */
-  p.presupuesto {
-    font-size: 16px; /* Tamaño de fuente, ajusta según tu preferencia */
-    color: #42d780; /* Color del texto, ajusta según tu preferencia */
-    margin-top: 5px; /* Espaciado superior, ajusta según tu preferencia */
-    text-align: right; /* Alineación a la derecha, ajusta según tu preferencia */
+  to {
+      opacity: 1;
+      transform: translateX(0);
   }
-  
+}
+
+@keyframes scaleIn {
+  from {
+      transform: scale(0.8);
+  }
+  to {
+      transform: scale(1);
+  }
+}
