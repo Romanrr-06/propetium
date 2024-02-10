@@ -8,30 +8,25 @@ const routes: Routes = [
     redirectTo: 'sobre',
     pathMatch: 'full'
   },
-  
   {
     path: 'sobre',
     loadChildren: () => import('./sobre/sobre.module').then( m => m.SobrePageModule),
-    
   },
-
   {
     path: 'quizz',
     loadChildren: () => import('./quizz/quizz.module').then( m => m.QuizzPageModule),
-
   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
- 
   {
     path: 'ruleta',
     loadChildren: () => import('./ruleta/ruleta.module').then( m => m.RuletaPageModule),
     canActivate: [AuthGuard]
   },
   {
-    path: 'tienda/',
+    path: 'tienda',
     loadChildren: () => import('./tienda/tienda.module').then( m => m.TiendaPageModule),
     canActivate: [AuthGuard]
   },
@@ -48,9 +43,8 @@ const routes: Routes = [
   {
     path: 'inventory',
     loadChildren: () => import('./inventory/inventory.module').then( m => m.InventoryPageModule),
-   canActivate: [ AuthGuard] 
+    canActivate: [AuthGuard]
   },
- 
   {
     path: 'community',
     loadChildren: () => import('./community/community.module').then( m => m.CommunityPageModule),
@@ -77,16 +71,11 @@ const routes: Routes = [
     loadChildren: () => import('./actualizaciones/actualizaciones.module').then( m => m.ActualizacionesPageModule)
   },
   {
-    path: 'tienda',
-    loadChildren: () => import('./tienda/tienda.module').then( m => m.TiendaPageModule)
-  },
-  {
     path: 'cart',
     loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
-  },
-  
-  
+  }
 ];
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
