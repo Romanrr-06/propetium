@@ -23,7 +23,7 @@ export class AppComponent {
     { title: 'noticias', url: '/noticias', icon: '', login_hide: true },
     { title: 'communidad', url: '/community', icon: '', login_hide: true },
     { title: 'noticias-actualizaciones', url: '/noticias-actualizaciones', icon: '', login_hide: true },
-    { title: 'tienda', url: '/tienda', icon: '', login_hide: true },
+    { title: 'tienda', url: '/tienda', icon: '', login_hide: false },
 
 
   ];

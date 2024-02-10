@@ -10,7 +10,6 @@ export class HomePage {
 
   public featureItems: { title: string; icon: string; route: string }[] = [
       { title: 'Banck',  icon: 'logo-bitcoin', route: '/banck' },
-    { title: 'Catalogue', icon: 'bag-add-sharp', route: '/catalogo', },
     { title: 'Community', icon: 'people',route: '/community',  },
     { title: 'Crypto',  icon: 'bookmarks-sharp', route: '/crypto', },
     { title: 'Crypto-game', icon: 'logo-game-controller-a', route: '/crypto-game', },
@@ -20,7 +19,7 @@ export class HomePage {
     { title: 'Quizz', icon: 'help-circle-sharp', route: '/quizz',  },
     { title: 'Ruleta',icon:'help-circle-sharp', route: '/ruleta', },
     { title: 'Abouth', icon:'people-sharp', route: '/sobre', },
-    { title: 'Tienda',  icon:'bag-add-sharp', route: '/tienda',},
+    { title: 'Tienda',  icon: 'bag-add-sharp', route: '/tienda' } ,
   ];
   constructor(private router: Router) {}
 

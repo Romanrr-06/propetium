@@ -8,11 +8,7 @@ const routes: Routes = [
     redirectTo: 'sobre',
     pathMatch: 'full'
   },
-  {
-    path: 'catalogo',
-    loadChildren: () => import('./catalogo/catalogo.module').then( m => m.CatalogoPageModule),
-    canActivate: [AuthGuard],
-  },
+  
   {
     path: 'sobre',
     loadChildren: () => import('./sobre/sobre.module').then( m => m.SobrePageModule),
@@ -54,11 +50,7 @@ const routes: Routes = [
     loadChildren: () => import('./inventory/inventory.module').then( m => m.InventoryPageModule),
    canActivate: [ AuthGuard] 
   },
-  {
-    path: 'banck',
-    loadChildren: () => import('./banck/banck.module').then( m => m.BanckPageModule),
-    canActivate: [ AuthGuard]
-  },
+ 
   {
     path: 'community',
     loadChildren: () => import('./community/community.module').then( m => m.CommunityPageModule),
@@ -83,6 +75,14 @@ const routes: Routes = [
   {
     path: 'actualizaciones',
     loadChildren: () => import('./actualizaciones/actualizaciones.module').then( m => m.ActualizacionesPageModule)
+  },
+  {
+    path: 'tienda',
+    loadChildren: () => import('./tienda/tienda.module').then( m => m.TiendaPageModule)
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
   },
   
   

@@ -1,25 +1,34 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-item>
-      <ion-button routerLink="/home">back</ion-button>
-    </ion-item>
-    <ion-title>Detalles de la Casa</ion-title>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Otra Tienda</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card *ngIf="item">
-    <div class="image-container">
-      <ion-button (click)="cambiarImagenAnterior(item)" class="arrow-button" size="small">Anterior</ion-button>
-      <img [src]="item.imagenes[item.imagenActual]" alt="{{ item.nombre }}" />
-      <ion-button (click)="cambiarImagenSiguiente(item)" class="arrow-button" size="small">Siguiente</ion-button>
-    </div>
-    <ion-card-header>
-      <ion-card-title>{{ item.nombre }}</ion-card-title>
-      <ion-card-subtitle>{{ item.descripcion }}</ion-card-subtitle>
-      <p>Precio: {{ item.precio }}</p>
-    </ion-card-header>
-    <ion-card-content>
-    </ion-card-content>
-  </ion-card>
+<ion-content class="content-background">
+  <ion-grid fixed class="productos-grid">
+    <ion-row>
+      <ion-col size="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let item of catalogoItems">
+        <ion-card>
+          <div class="image-container">
+            <ion-button (click)="cambiarImagenAnterior(item)" class="arrow-button" size="small">Anterior</ion-button>
+            <img [src]="item.imagenes[item.imagenActual]" alt="{{ item.nombre }}" />
+            <ion-button (click)="cambiarImagenSiguiente(item)" class="arrow-button" size="small">Siguiente</ion-button>
+          </div>
+          <ion-card-header>
+            <ion-card-title>{{ item.nombre }}</ion-card-title>
+            <ion-card-subtitle>{{ item.descripcion }}</ion-card-subtitle>
+            <p>Precio: {{ item.precio }}</p>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- Puedes agregar más detalles o información aquí -->
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

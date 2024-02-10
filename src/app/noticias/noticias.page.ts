@@ -67,7 +67,6 @@ export class NoticiasPage {
       return;
     }
 
-    // Resto del código para agregar la nueva noticia a la lista y ocultar las demás
 
     this.noticias.forEach((noticia, index) => {
       noticia.expanded = false;
