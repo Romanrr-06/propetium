@@ -12,6 +12,7 @@
   import { NgChartsModule } from 'ng2-charts';
   import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker'; // Asegúrate de importar HttpClientModule
+import { ToastController } from '@ionic/angular';
 
   // import { ToastController } from '@ionic/angular';
 
@@ -23,6 +24,7 @@ import { ServiceWorkerModule } from '@angular/service-worker'; // Asegúrate de 
       FormsModule,
       NgChartsModule,
       BrowserModule,
+    
       HttpClientModule,
       AuthModule.forRoot({
         domain: 'dev-fxnxeoubwkjca2ea.eu.auth0.com',
@@ -39,7 +41,7 @@ import { ServiceWorkerModule } from '@angular/service-worker'; // Asegúrate de 
       }),
     ],
     providers: [
-       
+      ToastController,  
     ],
     bootstrap: [AppComponent],
   })

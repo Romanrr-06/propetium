@@ -1,5 +1,36 @@
+<!-- En noticias.page.html -->
+
 <ion-content [fullscreen]="true">
-  <ion-list>
+  <!-- Tutorial para nuevas personas -->
+  <div *ngIf="mostrarTutorial" class="tutorial-container">
+    <h2>Bienvenido a nuestra página de noticias</h2>
+    <p>¡Te damos la bienvenida a nuestra plataforma de noticias! Aquí encontrarás las últimas noticias y podrás agregar tus propias historias.</p>
+    <p>Sigue estos pasos para comenzar:</p>
+
+    <div class="tutorial-step">
+      <h3>Paso 1: Explora las noticias</h3>
+      <p>Desplázate hacia abajo para ver las noticias existentes. Haz clic en los botones de ojo para ver las imágenes y expande las noticias para leer más contenido.</p>
+    </div>
+
+    <div class="tutorial-step">
+      <h3>Paso 2: Agrega tu propia noticia</h3>
+      <p>Utiliza el formulario en la parte inferior para agregar tu propia noticia. Completa el título, el contenido y puedes subir una imagen arrastrándola y soltándola o seleccionándola desde tu dispositivo.</p>
+    </div>
+
+    <div class="tutorial-step">
+      <h3>Paso 3: Explora las funciones</h3>
+      <p>Experimenta con las funciones como arrastrar y soltar, y observa cómo interactúan con la página.</p>
+    </div>
+
+    <div class="tutorial-step">
+      <h3>Listo para comenzar</h3>
+      <p>¡Ahora estás listo para disfrutar de la experiencia de noticias! Disfruta explorando y compartiendo historias.</p>
+      <button ion-button (click)="finalizarTutorial()">Finalizar Tutorial</button>
+    </div>
+  </div>
+
+  <!-- Lista de noticias -->
+  <ion-list *ngIf="!mostrarTutorial">
     <ion-item *ngFor="let noticia of noticias; let i = index" lines="full" [style.display]="i === currentIndex ? 'block' : 'none'">
       <ion-thumbnail slot="start" *ngIf="noticia.mostrarImagen">
         <img [src]="noticia.imagen" alt="Imagen de la noticia" class="news-image">
@@ -11,46 +42,85 @@
       </ion-label>
 
       <ion-button slot="end" fill="clear" (click)="toggleNewsContent(i)">
-        {{ noticia.expanded ? 'Cerrar' : 'Ver Más' }}
+        <ion-icon [name]="noticia.expanded ? 'close-outline' : 'add-outline'"></ion-icon>
       </ion-button>
 
       <ion-button slot="end" fill="clear" (click)="toggleImage(i)">
-        {{ noticia.mostrarImagen ? 'Ocultar Imagen' : 'Ver Imagen' }}
+        <ion-icon [name]="noticia.mostrarImagen ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
       </ion-button>
     </ion-item>
     
-    <!-- Button to show more news -->
+    <!-- Botón para mostrar más noticias -->
     <ion-button *ngIf="noticias.length > 1" expand="full" (click)="showNextNews()">
-      Ver Más Noticias
+      <ion-icon name="add-outline"></ion-icon>
     </ion-button>
   </ion-list>
   
-  <ion-card>
+  <!-- Formulario para agregar nueva noticia -->
+  <ion-card *ngIf="!mostrarTutorial">
     <ion-card-content>
       <ion-list>
+        <!-- Título de la noticia -->
         <ion-item>
           <ion-label position="floating">Título de la Noticia</ion-label>
           <ion-input [(ngModel)]="nuevaNoticia.titulo" required></ion-input>
         </ion-item>
 
+        <!-- Contenido de la noticia -->
         <ion-item>
           <ion-label position="floating">Contenido de la Noticia</ion-label>
           <ion-textarea [(ngModel)]="nuevaNoticia.contenido" rows="5" required></ion-textarea>
         </ion-item>
 
+        <!-- Input para subir imagen desde el sistema de archivos -->
         <ion-item>
-          <ion-label position="floating">URL de la Imagen</ion-label>
-          <ion-input [(ngModel)]="nuevaNoticia.imagen" type="url"></ion-input>
-          <ion-text *ngIf="nuevaNoticia.imagen && !esURLValida(nuevaNoticia.imagen)" color="danger">
-            {{ esURLValida(nuevaNoticia.imagen) ? '' : 'Ingresa una URL de imagen válida.' }}
-          </ion-text>
-          
+          <ion-label position="floating">Subir Imagen</ion-label>
+          <ion-button fill="clear" class="file-upload-button">
+            <input type="file" (change)="handleImageUpload($event)" accept="image/*">
+            <ion-icon name="cloud-upload-outline" class="icon"></ion-icon>
+          </ion-button>
+        </ion-item>
+
+        <!-- Input para arrastrar y soltar -->
+        <ion-item>
+          <ion-label position="floating">Arrastra y Suelta Aquí</ion-label>
+          <div class="image-drop-area"
+               (dragover)="handleDragOver($event)"
+               (dragleave)="handleDragLeave($event)"
+               (drop)="handleDrop($event)">
+            <ion-icon name="add-circle-outline" class="icon"></ion-icon>
+          </div>
         </ion-item>
       </ion-list>
     </ion-card-content>
   </ion-card>
 
+  <!-- Botón para crear nueva noticia -->
   <ion-button expand="full" class="ion-margin-top" (click)="agregarNoticia()">
-    Crear Noticia
+    <ion-icon name="create-outline"></ion-icon>
   </ion-button>
+</ion-content>
+
+<!-- Mostrar noticias creadas -->
+<ion-content *ngIf="noticias.length > 0">
+  <ion-list>
+    <ion-item *ngFor="let noticia of noticias; let i = index">
+      <ion-thumbnail slot="start" *ngIf="noticia.mostrarImagen">
+        <img [src]="noticia.imagen" alt="Imagen de la noticia" class="news-image">
+      </ion-thumbnail>
+
+      <ion-label>
+        <h2 class="news-title">{{ noticia.titulo }}</h2>
+        <p class="news-content" *ngIf="noticia.expanded">{{ noticia.contenido }}</p>
+      </ion-label>
+
+      <ion-button slot="end" fill="clear" (click)="toggleNewsContent(i)">
+        <ion-icon [name]="noticia.expanded ? 'close-outline' : 'add-outline'"></ion-icon>
+      </ion-button>
+
+      <ion-button slot="end" fill="clear" (click)="toggleImage(i)">
+        <ion-icon [name]="noticia.mostrarImagen ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>

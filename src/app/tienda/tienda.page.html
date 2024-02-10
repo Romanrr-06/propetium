@@ -1,3 +1,5 @@
+<!-- tienda.page.html -->
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
@@ -5,7 +7,12 @@
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Otra Tienda</ion-title>
+    <ion-title>Tienda</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToCart()">
+        <ion-icon name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -24,9 +31,8 @@
             <ion-card-subtitle>{{ item.descripcion }}</ion-card-subtitle>
             <p>Precio: {{ item.precio }}</p>
           </ion-card-header>
-          <ion-card-content>
-            <!-- Puedes agregar más detalles o información aquí -->
-          </ion-card-content>
+          
+          <ion-button (click)="addToCart(item)" expand="full">Agregar al Carrito</ion-button>
         </ion-card>
       </ion-col>
     </ion-row>

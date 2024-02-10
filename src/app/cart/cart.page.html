@@ -1,13 +1,25 @@
+<!-- cart.page.html -->
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>cart</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cart</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of cartService.cartItems; let i = index">
+      <ion-label>{{ item.nombre }} - {{ item.precio }}</ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="removeFromCart(i)">Eliminar</ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+  <!-- Presupuesto fuera de la lista -->
+  <ion-item>
+    <p class="presupuesto">Presupuesto total: {{ calcularPresupuestoTotal() }}</p>
+  </ion-item>
+
+  <!-- Botón de comparar -->
+  <ion-button expand="full" (click)="compararItems()">Comparar</ion-button>
 </ion-content>

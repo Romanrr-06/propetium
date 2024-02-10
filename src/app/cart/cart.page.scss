@@ -1,0 +1,24 @@
+/* cart.page.scss */
+
+ion-content {
+    --ion-background-color: #c18686; /* Color de fondo, ajusta según tu preferencia */
+  }
+  
+  ion-list {
+    margin: 10px; /* Ajusta el margen según tu preferencia */
+  }
+  
+  ion-item {
+    border: 1px solid #705b5b; /* Borde para separar los elementos, ajusta según tu preferencia */
+    margin-bottom: 10px; /* Espaciado entre elementos, ajusta según tu preferencia */
+    padding: 10px; /* Relleno interno, ajusta según tu preferencia */
+  }
+  
+  /* Estilo para el presupuesto */
+  p.presupuesto {
+    font-size: 16px; /* Tamaño de fuente, ajusta según tu preferencia */
+    color: #42d780; /* Color del texto, ajusta según tu preferencia */
+    margin-top: 5px; /* Espaciado superior, ajusta según tu preferencia */
+    text-align: right; /* Alineación a la derecha, ajusta según tu preferencia */
+  }
+  

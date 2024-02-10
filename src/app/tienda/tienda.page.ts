@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from '../cart.service';
+import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-tienda',
@@ -34,8 +38,9 @@ export class TiendaPage implements OnInit {
       precio: '$120,000',
     },
   ]
+  
 
-  constructor() {}
+  constructor(private cartService: CartService, private toastController: ToastController, private router: Router) {}
 
   ngOnInit() {
     // Inicializaciones y lógica de inicio si es necesario
@@ -56,4 +61,23 @@ export class TiendaPage implements OnInit {
       item.imagenActual = item.imagenes.length - 1;
     }
   }
+  addToCart(item: any) {
+    this.cartService.addToCart(item);
+    this.presentToast('Item agregado al carrito');
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000,
+      position: 'bottom',
+    });
+    toast.present();
+  }
+
+  // Función para ir a la página del carrito
+  goToCart() {
+    this.router.navigate(['/cart']);
+  }
+
 }

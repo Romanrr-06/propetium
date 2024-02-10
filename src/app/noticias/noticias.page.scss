@@ -1,95 +1,262 @@
-// En tu archivo .scss asociado al componente
+// noticias.page.scss
+
 ion-content {
-    [fullscreen=true] {
-      height: 100%;
+  [fullscreen=true] {
+    height: 100%;
+  }
+}
+.tutorial-container {
+  background-color: #ea0000; /* Fondo suave rojo */
+  padding: 20px;
+  border-radius: 15px;
+  margin: 50px auto;
+  max-width: 800px;
+  animation: fadeInUp 0.5s ease-in-out;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  z-index: 9999; /* Asegura que esté en la capa superior */
+  position: relative; /* Permite el posicionamiento relativo */
+  color: #fff; /* Texto blanco para mayor contraste */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Añade bordes y sombras para resaltar */
+  border: 2px solid #fff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+
+  /* Añade un gradiente de fondo para un efecto más elegante */
+  background: linear-gradient(45deg, #ea0000, #ff4500);
+}
+
+/* Añade estilos para el contenido del tutorial */
+.tutorial-container h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.tutorial-container p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.tutorial-container button {
+  background-color: #fff; /* Botón blanco para contraste */
+  color: #ea0000; /* Texto rojo para contraste */
+  border: 2px solid #ea0000;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.tutorial-container button:hover {
+  background-color: #ea0000;
+  color: #fff;
+}
+
+/* Añade una línea divisoria para separar el contenido */
+.tutorial-container::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  margin: 20px 0;
+}
+
+/* Añade un ícono o elemento decorativo */
+.tutorial-container::before {
+  content: '🌟'; /* Cambia esto por el ícono o contenido que desees */
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tutorial-step {
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ... Código anterior ... */
+
+/* Estilos para la lista de noticias */
+.news-container ion-list {
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+/* Estilos para los elementos de la lista de noticias */
+.news-container ion-item {
+  position: relative;
+  background-color: #fff;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.5s ease-in-out;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  /* Añade un gradiente sutil al fondo del elemento */
+  background: linear-gradient(45deg, #fff, #f0f0f0);
+
+  /* Añade estilos al título de la noticia */
+  .news-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4d4dff; /* Tono lujoso azul */
+    margin-bottom: 10px;
+  }
+
+  /* Añade estilos al contenido de la noticia */
+  .news-content {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 10px;
+  }
+
+  /* Añade estilos a la imagen de la noticia */
+  .news-image {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%;
+    border: 2px solid #cc66ff; /* Borde delgado de color morado */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sutil sombra */
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  
+    /* Efecto de escala al pasar el ratón sobre la imagen */
+    &:hover {
+      transform: scale(1.1);
+      border-color: #ff6666; /* Cambia el color del borde al pasar el ratón */
+    }
+  
+    /* Animación de entrada para la imagen */
+    animation: fadeIn 0.5s ease-in-out;
+  
+    /* Estilos para la animación de entrada */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
   }
   
-// En tu archivo .scss asociado al componente
+
+  /* Añade estilos al botón de la noticia */
+  ion-button {
+    font-size: 1rem;
+    color: #cc66ff; /* Tono lujoso morado */
+    margin-left: 15px;
+  }
+
+  /* Estilos para la animación de aparición */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Estilos para las tarjetas de noticias */
+.news-container ion-card {
+  background-color: #ff6666; /* Tono lujoso rojo */
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+  /* Añade estilos al contenido de la tarjeta */
+  ion-card-content {
+    color: #fff;
+    font-size: 1.2rem;
+  }
+}
+
+/* ... Puedes seguir añadiendo estilos según tus preferencias ... */
+
 
 ion-list {
-    height: 80%;
-    max-width: 1380px;
-    margin: 6rem auto; // Ajusta el valor superior e inferior según tus necesidades
-  }
-  
-    // Centra el componente en la pantalla
-  
+  background-color: #f9f9f9;
+}
 
-ion-header {
-    background-color: #007bff; // Color de fondo del encabezado ajustable
-  }
-  
-  ion-list {
-    background-color: #ffffff; // Color de fondo de la lista ajustable
-  }
-  
-  ion-item {
-    // Fondo del ion-item
-    background-color: #f4f4f4; // Color de fondo ajustable
-    border-radius: 10px; // Borde redondeado para el ion-item
-    margin-bottom: 10px; // Espaciado inferior entre ítems
-  
-    // Estilo para el título de la noticia
-    .news-title {
-      font-size: 1.5rem; // Tamaño de fuente ajustable
-      font-weight: bold;
-      color: #333; // Color del texto
-      margin-bottom: 5px; // Espacio inferior
-    }
-  
-    // Estilo para el contenido de la noticia
-    .news-content {
-      font-size: 1rem; // Tamaño de fuente ajustable
-      color: #555; // Color del texto
-      margin-top: 5px; // Espacio superior
-    }
-  
-    // Estilo para la imagen de la noticia
-    .news-image {
-      max-width: 50px; // Ancho máximo ajustable
-      max-height: 50px; // Altura máxima ajustable
-      border-radius: 50%; // Borde redondeado para la imagen
-    }
-  
-    // Estilo para los botones de la noticia
-    ion-button {
-      font-size: 0.8rem; // Tamaño de fuente ajustable
-      color: #007bff; // Color del texto del botón
-      margin-left: 10px; // Espaciado izquierdo entre botones
-    }
-  }
-  
+ion-item {
+  background-color: #fff;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  animation: fadeInUp 0.5s ease-in-out;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* Permite el posicionamiento relativo */
 
+  .news-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4d4dff; /* Tono lujoso azul */
+    margin-bottom: 10px;
+  }
 
-//   {
-//     titulo: "Propetium-Coin Revoluciona el Mundo de las Criptomonedas con Innovador Enfoque Ecológico",
-//     contenido: "En una sorprendente y emocionante revelación, Propetium-Coin ha anunciado su entrada al mercado de criptomonedas con un enfoque revolucionario en sostenibilidad ambiental. Esta nueva moneda digital busca cambiar la percepción tradicional de las criptomonedas al abordar activamente las preocupaciones sobre el consumo energético y el impacto ambiental asociados con la minería de criptomonedas.\n\nPropetium-Coin ha adoptado un innovador mecanismo de consenso denominado 'Proof-of-Green', que premia a los mineros que utilizan fuentes de energía renovable. Este enfoque ha generado un gran interés en la comunidad criptográfica, ya que aborda las críticas ambientales que a menudo se asocian con otras criptomonedas.\n\nAdemás de su compromiso con la sostenibilidad, Propetium-Coin también ha implementado tecnologías de seguridad de última generación para proteger las transacciones y garantizar la integridad de la red.\n\nSu equipo de desarrollo está formado por expertos en blockchain y tecnologías descentralizadas, lo que aumenta la confianza en la viabilidad a largo plazo de la moneda.\n\nLa moneda se lanzó con un evento virtual que atrajo la atención de inversores y entusiastas de todo el mundo. Durante el lanzamiento, los fundadores de Propetium-Coin destacaron su compromiso con la transparencia y la participación comunitaria, prometiendo utilizar parte de los beneficios para iniciativas ecológicas y sociales.\n\nA medida que Propetium-Coin comienza a ganar tracción en los mercados, se espera que su enfoque ecológico atraiga a inversores éticos y concienciados con el medio ambiente. Esta nueva incorporación al mundo de las criptomonedas demuestra que la innovación y la sostenibilidad pueden ir de la mano, ofreciendo un enfoque prometedor para el futuro de las finanzas digitales.",
-//     imagen: 'url-a-la-imagen-propetium.jpg',
-//     expanded: false,
-//     mostrarImagen: false,
-//     usuario: 'Nombre de Usuario',
-//     comentarios: [],
-//     mostrarComentarios: true
-//   },
-//   {
-//     titulo: "EtherVortex Anuncia Contrato Inteligente Revolucionario para Transacciones Instantáneas",
-//     contenido: "La criptomoneda EtherVortex ha revelado un contrato inteligente revolucionario que permite transacciones instantáneas. Esta innovación busca abordar los desafíos de escalabilidad enfrentados por muchas criptomonedas, ofreciendo una solución eficiente y rápida para los usuarios.",
-//     imagen: 'url-a-la-imagen-ethervortex.jpg',
-//     expanded: false,
-//     mostrarImagen: false,
-//     usuario: 'Nombre de Usuario',
-//     comentarios: [],
-//     mostrarComentarios: true
-//   },
-//   {
-//     titulo: "SolarCoin Impulsa la Adopción de Energía Solar con Recompensas para Productores de Energía Verde",
-//     contenido: "SolarCoin, una criptomoneda centrada en la sostenibilidad, ha implementado un programa de recompensas para los productores de energía solar. Los usuarios que generan energía verde ahora pueden recibir SolarCoins como incentivo, fomentando la adopción de fuentes de energía renovable.",
-//     imagen: 'url-a-la-imagen-solarcoin.jpg',
-//     expanded: false,
-//     mostrarImagen: false,
-//     usuario: 'Nombre de Usuario',
-//     comentarios: [],
-//     mostrarComentarios: true
-//   },
-// ];
+  .news-content {
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 10px;
+  }
+
+  .news-image {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 50%;
+  }
+
+  ion-button {
+    font-size: 1rem;
+    color: #cc66ff; /* Tono lujoso morado */
+    margin-left: 15px;
+  }
+}
+
+ion-card {
+  background-color: #ff6666; /* Tono lujoso rojo */
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+ion-button {
+  background-color: #cc66ff; /* Tono lujoso morado */
+  color: #fff;
+  font-weight: bold;
+  border-radius: 15px;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+// Agrega estilos adicionales según tus preferencias de diseño
