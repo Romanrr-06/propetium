@@ -15,6 +15,6 @@
       CryptoGamePageRoutingModule
     ],
     declarations: [CryptoGamePage],
-    providers: [CryptoGameService], // Asegúrate de que el servicio esté aquí
+    providers: [CryptoGameService], 
   })
   export class CryptoGamePageModule {}

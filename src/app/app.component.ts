@@ -13,7 +13,7 @@ import { SearchService } from './search.service';
 export class AppComponent {
   public appPages = [
     { title: 'login', url: '/login', icon: 'log-in', login_hide: false },
-    { title: 'about', url: '/about', icon: 'people', login_hide: true },
+    { title: 'about', url: '/sobre', icon: 'people', login_hide: true },
     { title: 'Home', url: '/home', icon: 'home', login_hide: true },
     { title: 'crypto', url: '/crypto', icon: 'logo-bitcoin', login_hide: true },
     { title: 'game', url: '/crypto-game', icon: 'logo-game-controller-b', login_hide: true },
@@ -21,7 +21,16 @@ export class AppComponent {
     { title: 'actualizaciones', url: '/actualizaciones', icon: '', login_hide: true },
     { title: 'catalogo', url: '/catalogo', icon: '', login_hide: true },
     { title: 'noticias', url: '/noticias', icon: '', login_hide: true },
+    { title: 'communidad', url: '/community', icon: '', login_hide: true },
+    { title: 'noticias-actualizaciones', url: '/noticias-actualizaciones', icon: '', login_hide: true },
+    { title: 'tienda', url: '/tienda', icon: '', login_hide: true },
+
+
   ];
+  
+  public filteredAppPages = this.appPages.filter(page => {
+    return (!page.login_hide && this.auth.isAuthenticated$) || page.title.toLowerCase() === 'game' || page.title.toLowerCase() === 'banck' || page.title.toLowerCase() === 'noticias';
+  });
 
   @ViewChild('searchBar', { static: true }) searchBar?: IonSearchbar;
 
@@ -46,8 +55,8 @@ export class AppComponent {
     // Obtener opciones relacionadas del servicio
     this.relatedOptions = this.searchService.getRelatedOptions(searchTerm);
 
-    // Buscar la página relacionada
-    const foundPage = this.appPages.find(page => page.title.toLowerCase() === searchTerm);
+    // Buscar la página relacionada en el arreglo filtrado
+    const foundPage = this.filteredAppPages.find(page => page.title.toLowerCase() === searchTerm);
 
     if (foundPage) {
       this.navigateToPage(foundPage);
