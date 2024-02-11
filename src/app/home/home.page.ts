@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class HomePage {
 
   public featureItems: { title: string; icon: string; route: string }[] = [
-      { title: 'Banck',  icon: 'logo-bitcoin', route: '/banck' },
     { title: 'Community', icon: 'people',route: '/community',  },
     { title: 'Crypto',  icon: 'bookmarks-sharp', route: '/crypto', },
     { title: 'Crypto-game', icon: 'logo-game-controller-a', route: '/crypto-game', },

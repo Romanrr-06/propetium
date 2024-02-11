@@ -54,10 +54,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
-  {
-    path: 'asistend',
-    loadChildren: () => import('./asistend/asistend.module').then( m => m.AsistendPageModule)
-  },
+
   {
     path: 'crypto',
     loadChildren: () => import('./crypto/crypto.module').then( m => m.CryptoPageModule)
