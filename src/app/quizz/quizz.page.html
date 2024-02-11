@@ -1,10 +1,12 @@
 <ion-content [fullscreen]="true">
-  <!-- Tu contenido actual aquí -->
-
-  <!-- Mostrar las preguntas -->
-
-    <ion-list>
-        
-    </ion-list>
-  </ion-content>
-  
+  <ion-list *ngIf="data && data.length > 0">
+    <ion-item>
+      <ion-label>{{ preguntaActual.Pregunta }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="respuestaActual" placeholder="Escribe tu respuesta"></ion-input>
+    </ion-item>
+    <ion-button expand="full" (click)="siguientePregunta()">Siguiente Pregunta</ion-button>
+  </ion-list>
+  <ion-text *ngIf="!data || data.length === 0">No hay más preguntas.</ion-text>
+</ion-content>

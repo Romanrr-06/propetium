@@ -1,7 +1,14 @@
 // ruleta.page.ts
-
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+interface CryptoOption {
+  id: number;
+  name: string;
+  tipo: string;
+  probabilidad: string;
+  angle?: number; // Added angle property to CryptoOption interface
+}
 
 @Component({
   selector: 'app-ruleta',
@@ -9,15 +16,34 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./ruleta.page.scss'],
 })
 export class RuletaPage implements OnInit {
-public data :any;
-constructor(private http: HttpClient){}
-  
-  ngOnInit() {
-       
-    this.http.get('http://localhost:3000/crypto').subscribe((data)=> {
-      console.log(data)
-      this.data = data;
-    })
-    
+  public data: CryptoOption[] = [];
+  public rotation = 0;
+  public nombreAleatorio: string | undefined;
 
-  }}
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.obtenerDatos();
+  }
+
+  obtenerDatos() {
+    this.http.get<CryptoOption[]>('http://localhost:3000/crypto').subscribe((data) => {
+      this.data = this.calculateRotationAngles(data.filter(option => option.name !== 'bat'));
+    });
+  }
+
+  calculateRotationAngles(data: CryptoOption[]) {
+    const totalOptions = data.length;
+    const anglePerOption = 360 / totalOptions;
+
+    return data.map((option, index) => ({
+      ...option,
+      angle: index * anglePerOption,
+    }));
+  }
+
+  obtenerNombreAleatorio() {
+    const randomIndex = Math.floor(Math.random() * this.data.length);
+    this.nombreAleatorio = this.data[randomIndex].name;
+  }
+}

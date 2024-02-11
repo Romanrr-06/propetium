@@ -8,9 +8,10 @@ import { Injectable } from '@angular/core';
 export class TiendaService {
   private puntosEnTienda: number = 0;
 
-  constructor() { }
+  constructor() {}
 
   getPuntosEnTienda(): number {
+    console.log("Llamada a getPuntosEnTienda");
     return this.puntosEnTienda;
   }
 

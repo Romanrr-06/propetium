@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-quizz',
@@ -7,15 +7,52 @@ import {  HttpClient } from '@angular/common/http';
   styleUrls: ['./quizz.page.scss'],
 })
 export class QuizzPage implements OnInit {
-  constructor(private http: HttpClient){}
-  public data : any;
+  public data: any[] = [];
+  public preguntaActual: any;
+  public respuestaActual: string = "";
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
-       
-    this.http.get('http://localhost:3000/preguntas').subscribe((data)=> {
-      console.log(data)
-      this.data = data;
-    })
+    this.cargarPreguntas();
   }
 
+  cargarPreguntas() {
+    this.http.get('http://localhost:3000/preguntas').subscribe(
+      (data: any) => { // Cambiado de (data: any[]) a (data: any)
+        this.data = data;
+        this.mostrarSiguientePregunta();
+      },
+      (error) => {
+        console.error('Error al cargar las preguntas:', error);
+      }
+    );
+  }
+
+  mostrarSiguientePregunta() {
+    if (this.data && this.data.length > 0) {
+      this.preguntaActual = this.data.shift();
+      this.respuestaActual = "";
+    } else {
+      this.preguntaActual = null;
+    }
+  }
+
+  siguientePregunta() {
+    console.log('Respuesta de la pregunta actual:', this.respuestaActual);
+
+    // Guardar la respuesta en el servidor
+    const preguntaId = this.preguntaActual.id;
+    this.http.get(`http://localhost:3000/preguntas/${preguntaId}?respuesta=${this.respuestaActual}`)
+      .subscribe(
+        (response: any) => {
+          console.log('Respuesta guardada en el servidor:', response);
+          // Mostrar la siguiente pregunta
+          this.mostrarSiguientePregunta();
+        },
+        (error) => {
+          console.error('Error al guardar la respuesta:', error);
+        }
+      );
+  }
 }

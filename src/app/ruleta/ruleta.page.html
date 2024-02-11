@@ -1,11 +1,23 @@
+<!-- ruleta.page.html -->
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-item> 
-      <ion-button routerLink="/home">back</ion-button>
+    <ion-item>
+      <ion-button routerLink="/home">Volver</ion-button>
     </ion-item>
   </ion-toolbar>
 
   <ion-title>Ruleta</ion-title>
-  <p> {{data?.[0]?.name}}</p>
-</ion-header> 
+</ion-header>
 
+<ion-content class="ion-padding">
+  <div class="roulette-container">
+    <div class="roulette" [style.transform]="'rotate(' + rotation + 'deg)'">
+      <div class="option" *ngFor="let option of data" [style.transform]="'rotate(' + option.angle + 'deg)'">
+        <p>{{ option.name }}</p>
+      </div>
+    </div>
+  </div>
+
+  <ion-button (click)="obtenerNombreAleatorio()">Obtener Nombre Aleatorio</ion-button>
+  <p *ngIf="nombreAleatorio">Nombre Aleatorio: {{ nombreAleatorio }}</p>
+</ion-content>

@@ -8,13 +8,13 @@ import { Injectable } from '@angular/core';
 export class CryptoGameService {
   private currentPrice: number;
   private points: number;
-  private pointsInStore: number; // Nueva variable para almacenar puntos en la tienda
+  private pointsInStore: number;
   private minPointsToTransfer: number;
 
   constructor() {
     this.currentPrice = this.getRandomPrice();
     this.points = 0;
-    this.pointsInStore = 0; // Inicializa la variable de puntos en la tienda
+    this.pointsInStore = 0;
     this.minPointsToTransfer = 120;
   }
 
@@ -30,7 +30,7 @@ export class CryptoGameService {
     if (isCorrect) {
       this.points += 10;
       if (this.points >= this.minPointsToTransfer) {
-        this.transferPointsToStore(); // Cambia a la función de transferencia de la tienda
+        this.transferPointsToStore();
       }
       this.currentPrice = newPrice;
       return `¡Correcto! Ganaste 10 puntos.`;
@@ -41,7 +41,7 @@ export class CryptoGameService {
   }
 
   transferPointsToStore(): void {
-    if (this.points > 0) { // Asegura que solo se transfieran puntos si hay puntos para transferir
+    if (this.points > 0) {
       this.pointsInStore += this.points;
       this.points = 0;
       console.log(`Se transfirieron ${this.pointsInStore} puntos a la tienda.`);
