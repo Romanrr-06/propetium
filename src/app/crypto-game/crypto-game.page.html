@@ -1,3 +1,5 @@
+<!-- crypto-game.page.html -->
+
 <ion-header>
   <ion-toolbar>
     <ion-item> 
@@ -5,6 +7,7 @@
     </ion-item>
   </ion-toolbar>
   <ion-title>Crypto Game</ion-title>
+  <ion-button expand="full" (click)="transferPoints()">Transferir Puntos</ion-button>
 </ion-header>
 
 <ion-content class="ion-padding">
@@ -27,10 +30,10 @@
   </ion-item>
 
   <ion-item>
-    <ion-label>Tus puntos: {{ getPoints() }}</ion-label>
+    <ion-label>Tus puntos: {{ points }}</ion-label>
   </ion-item>
-
+  
   <ion-item>
-    <ion-button routerLink="/bank">Ver Banco</ion-button>
+    <ion-button routerLink="/tienda">Ir a la Tienda</ion-button>
   </ion-item>
 </ion-content>

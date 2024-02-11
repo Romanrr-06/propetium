@@ -48,7 +48,7 @@ ion-searchbar {
   background: transparent;
   border: 2px solid #3a3a3a;
   border-radius: 20px;
-  color: #ffffff;
+  color: #000000; /* Cambia el color del texto a negro */
   transition: border-color 0.3s ease;
   animation: bounceIn 1s ease-in-out; /* New bounce-in animation for the search bar */
 }

@@ -1,83 +1,100 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from '../cart.service';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
-
+import { CryptoGameService } from '../services/crypto-game.service';
+import { TiendaService } from '../services/tienda.service';
 
 @Component({
   selector: 'app-tienda',
   templateUrl: './tienda.page.html',
   styleUrls: ['./tienda.page.scss'],
+  providers: [TiendaService],
 })
-export class TiendaPage implements OnInit {
+  export class TiendaPage implements OnInit {
+    public x: any;
+    public catalogoItems: any[] = [
+      {
+        id: 1,
+        nombre: 'Casa',
+        descripcion: 'Descripción de la Casa 1',
+        imagenes: [
+          'assets/houses index/house index 7.jpeg',
+          'assets/houses index/house-inde--7.jpeg',
+          'assets/houses index/houses-index-7.jpeg',
+          'assets/houses index/indexhouse 7.jpeg',
+        ],
+        imagenActual: 0,
+        precio: '$100,000',
+      },
+      {
+        id: 2,
+        nombre: 'Casa',
+        descripcion: 'Descripción de la Casa 2',
+        imagenes: [
+          'assets/houses index/house1.png',
+          'assets/houses index/house1-1-.png',
+          'assets/houses index/house1-.png',
+          'assets/houses index/house1--.png',
+          'assets/houses index/house1---.png',
+        ],
+        imagenActual: 0,
+        precio: '$150,000',
+      },
+      {
+        id: 3,
+        nombre: 'Casa',
+        descripcion: 'Descripción de la Casa 3',
+        imagenes: [
+          'assets/houses index/house2l.png',
+          'assets/houses index/house2l-1.png',
+          'assets/houses index/house2.png',
+          'assets/houses index/house2-12.png',
+          'assets/houses index/house2-1.png',
+          'assets/houses index/house2-.png',
+          'assets/houses index/house2--2png.png',
+          'assets/houses index/house2--.png',
+          'assets/houses index/house2---png.png',
+          'assets/houses index/house2---1.png',
+        ],
+        imagenActual: 0,
+        precio: '$120,000',
+      },
+    ];
 
-  public x: any;
-  catalogoItems = [
-    {
-      id: 1,
-      nombre: 'Casa',
-      descripcion: 'Descripción de la Casa 1',
-      imagenes: ['assets/houses index/house index 7.jpeg', 'assets/houses index/house-inde--7.jpeg', 'assets/houses index/houses-index-7.jpeg', 'assets/houses index/indexhouse 7.jpeg'],
-      imagenActual: 0,
-      precio: '$100,000',
-    },
-    {
-      id: 2,
-      nombre: 'Casa',
-      descripcion: 'Descripción de la Casa 2',
-      imagenes: ['assets/houses index/house1.png', 'assets/houses index/house1-1-.png', 'assets/houses index/house1-.png', 'assets/houses index/house1--.png', 'assets/houses index/house1---.png'],
-      imagenActual: 0,
-      precio: '$150,000',
-    },
-    {
-      id: 3,
-      nombre: 'Casa',
-      descripcion: 'Descripción de la Casa 3',
-      imagenes: ['assets/houses index/house2l.png', 'assets/houses index/house2l-1.png', 'assets/houses index/house2.png', 'assets/houses index/house2-12.png', 'assets/houses index/house2-1.png', 'assets/houses index/house2-.png','assets/houses index/house2--2png.png','assets/houses index/house2--.png', 'assets/houses index/house2---png.png','assets/houses index/house2---1.png',],  
-      imagenActual: 0,
-      precio: '$120,000',
-    },
-  ]
-  
+    private puntosEnTienda: number = 0;
 
-  constructor(private cartService: CartService, private toastController: ToastController, private router: Router) {}
+    constructor(
+      private toastController: ToastController,
+      private router: Router,
+      private cryptoGameService: CryptoGameService,
+      private tiendaService: TiendaService
+    ) {}
 
-  ngOnInit() {
-    // Inicializaciones y lógica de inicio si es necesario
-  }
+    ngOnInit() {
+      this.getPuntosEnTienda();
+    }
 
-  cambiarImagenSiguiente(item: any) {
-    if (item.imagenActual < item.imagenes.length - 1) {
-      item.imagenActual++;
-    } else {
-      item.imagenActual = 0;
+    getPuntosEnTienda() {
+      this.puntosEnTienda = this.tiendaService.getPuntosEnTienda();
+    }
+
+    comprarItem(item: any) {
+      const puntosRequeridos = 50;
+
+      if (this.puntosEnTienda >= puntosRequeridos) {
+        this.tiendaService.transferirPuntosAlCarrito(puntosRequeridos);
+        this.presentToast('Artículo comprado con éxito');
+      } else {
+        this.presentToast('No tienes suficientes puntos en la tienda para comprar este artículo');
+      }
+    }
+
+    async presentToast(message: string) {
+      const toast = await this.toastController.create({
+        message: message,
+        duration: 2000,
+        position: 'bottom',
+      });
+      toast.present();
     }
   }
-
-  cambiarImagenAnterior(item: any) {
-    if (item.imagenActual > 0) {
-      item.imagenActual--;
-    } else {
-      item.imagenActual = item.imagenes.length - 1;
-    }
-  }
-  addToCart(item: any) {
-    this.cartService.addToCart(item);
-    this.presentToast('Item agregado al carrito');
-  }
-
-  async presentToast(message: string) {
-    const toast = await this.toastController.create({
-      message: message,
-      duration: 2000,
-      position: 'bottom',
-    });
-    toast.present();
-  }
-
-  // Función para ir a la página del carrito
-  goToCart() {
-    this.router.navigate(['/cart']);
-  }
-
-}
