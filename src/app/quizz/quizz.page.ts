@@ -19,7 +19,7 @@ export class QuizzPage implements OnInit {
 
   cargarPreguntas() {
     this.http.get('http://localhost:3000/preguntas').subscribe(
-      (data: any) => { // Cambiado de (data: any[]) a (data: any)
+      (data: any) => { 
         this.data = data;
         this.mostrarSiguientePregunta();
       },
@@ -41,13 +41,12 @@ export class QuizzPage implements OnInit {
   siguientePregunta() {
     console.log('Respuesta de la pregunta actual:', this.respuestaActual);
 
-    // Guardar la respuesta en el servidor
+   
     const preguntaId = this.preguntaActual.id;
     this.http.get(`http://localhost:3000/preguntas/${preguntaId}?respuesta=${this.respuestaActual}`)
       .subscribe(
         (response: any) => {
           console.log('Respuesta guardada en el servidor:', response);
-          // Mostrar la siguiente pregunta
           this.mostrarSiguientePregunta();
         },
         (error) => {

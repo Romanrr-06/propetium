@@ -7,7 +7,7 @@
   import { AuthModule } from '@auth0/auth0-angular';
   // import { NgApexchartsModule } from 'ng-apexcharts';
   import { FormsModule } from '@angular/forms';
-  ;
+  
   // import { FilterPipe } from './filtro.pipe';
   import { NgChartsModule } from 'ng2-charts';
   import { HttpClientModule } from '@angular/common/http';

@@ -1,7 +1,7 @@
 // chat.component.ts
 
 import { Component, OnInit } from '@angular/core';
-import { ChatService } from '../chat.service'; // Asegúrate de que la ruta sea correcta
+import { ChatService } from '../services/chat.service'; // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-chat',

@@ -16,7 +16,7 @@ export class HomePage {
     { title: 'Login',  icon: 'shield-checkmark', route: '/login', },
     { title: 'Noticias y Actualizaciones', icon: 'shield-checkmark', route: '/noticias-actualizaciones',  },
     { title: 'Quizz', icon: 'help-circle-sharp', route: '/quizz',  },
-    { title: 'Ruleta',icon:'help-circle-sharp', route: '/ruleta', },
+    { title: 'Ruleta',icon:'', route: '/ruleta', },
     { title: 'Abouth', icon:'people-sharp', route: '/sobre', },
     { title: 'Tienda',  icon: 'bag-add-sharp', route: '/tienda' } ,
   ];
