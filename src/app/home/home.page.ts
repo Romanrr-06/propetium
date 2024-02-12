@@ -19,6 +19,8 @@ export class HomePage {
     { title: 'Ruleta',icon:'', route: '/ruleta', },
     { title: 'Abouth', icon:'people-sharp', route: '/sobre', },
     { title: 'Tienda',  icon: 'bag-add-sharp', route: '/tienda' } ,
+    { title: 'chat', icon:'people-sharp', route: '/chat', },
+
   ];
   constructor(private router: Router) {}
 
