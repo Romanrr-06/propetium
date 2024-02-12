@@ -6,7 +6,7 @@ import { Host } from "@angular/core"
 
 export const environment = {
   production: true,
-  bakend_Host:'http://localhost:3000'
+  bakend_host:'http://localhost:3000'
 };
 
 /*

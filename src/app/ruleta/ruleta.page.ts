@@ -7,7 +7,7 @@ interface CryptoOption {
   name: string;
   tipo: string;
   probabilidad: string;
-  angle?: number; // Added angle property to CryptoOption interface
+  angle?: number; 
 }
 
 @Component({
@@ -27,7 +27,7 @@ export class RuletaPage implements OnInit {
   }
 
   obtenerDatos() {
-    this.http.get<CryptoOption[]>(environment.bakend_Host + '/crypto').subscribe((data) => {
+    this.http.get<CryptoOption[]>(environment.bakend_host + '/crypto').subscribe((data) => {
       this.data = this.calculateRotationAngles(data.filter(option => option.name !== 'bat'));
     });
   }
