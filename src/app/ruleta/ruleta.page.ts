@@ -1,7 +1,7 @@
 // ruleta.page.ts
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 interface CryptoOption {
   id: number;
   name: string;
@@ -27,7 +27,7 @@ export class RuletaPage implements OnInit {
   }
 
   obtenerDatos() {
-    this.http.get<CryptoOption[]>('http://localhost:3000/crypto').subscribe((data) => {
+    this.http.get<CryptoOption[]>(environment.bakend_Host + '/crypto').subscribe((data) => {
       this.data = this.calculateRotationAngles(data.filter(option => option.name !== 'bat'));
     });
   }

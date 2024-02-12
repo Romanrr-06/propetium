@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  bakend_host: 'https://propetium-trading-web.onrender.com'
+  bakend_host: 'https://propetium-trading-web.onrender.com',
 };
